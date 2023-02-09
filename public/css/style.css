@@ -1,0 +1,16 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+footer {
+    margin-top: 7em;
+    height:80px;
+}
+
+footer h5{
+    text-align: center;
+}
+
+.home-cards {
+    margin-top: 7em;
+}
