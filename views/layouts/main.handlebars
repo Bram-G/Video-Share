@@ -7,7 +7,14 @@
     <!-- Import Google Icon Font -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Import materialize.css -->
-    <link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script>
+        const ROOM_ID = " {{roomId}} "
+    </script>
+    <script src="../socket.io/socket.io.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    {{!-- <link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"  media="screen,projection"/> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -50,7 +57,8 @@
             </h5>
           </div>
       </footer>
-    <script type="text/javascript" src="../../materialize/js/materialize.js"></script>
+      
+    {{!-- <script type="text/javascript" src="../../materialize/js/materialize.js"></script> --}}
 </body>
 </html>
 
