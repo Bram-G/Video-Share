@@ -1,5 +1,19 @@
-body{
-    background: salmon;
+* {
+  font-family: "Lato", sans-serif;
+}
+body {
+  background: salmon;
+}
+
+footer {
+  margin-top: 7em;
+  height: 80px;
+}
+footer h5 {
+  text-align: center;
+}
+.home-cards {
+  margin-top: 7em;
 }
 
 #video-grid {
@@ -11,4 +25,7 @@ video{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.home-cards {
+    margin-top: 7em;
 }
