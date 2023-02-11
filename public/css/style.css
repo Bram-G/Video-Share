@@ -1,17 +1,17 @@
 * {
   font-family: "Lato", sans-serif;
 }
-body {
-  background: salmon;
-}
 
 footer {
-  margin-top: 7em;
-  height: 60px;
+  /* margin-top: 7em; */
+  height: 45px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 footer h5 {
   text-align: center;
-  margin-top: -2px;
+  margin-top: -10px;
 }
 .home-cards {
   margin-top: 7em;
@@ -19,13 +19,17 @@ footer h5 {
 
 #video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    grid-auto-rows: 300px;
+    grid-template-columns: repeat(auto-fill, 325px);
+    grid-auto-rows: 325px;
+    margin-left: 10%;
+    margin-top: 2%;
 }
+
 video{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 7px;
 }
 
 label {
