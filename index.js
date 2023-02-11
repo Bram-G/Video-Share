@@ -36,3 +36,12 @@ sequelize.sync({ force: false }).then(function() {
     console.log('App listening on PORT ' + PORT);
     });
 });
+
+
+
+//Navbar
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
