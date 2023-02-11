@@ -7,12 +7,12 @@ class User extends Model {}
 User.init({
     // add properites here, ex:
     email: {
-         type: DataTypes.STRING,
-         allowNull:false,
-         unique:true,
-         validate:{
+        type: DataTypes.STRING,
+        allowNull:false,
+        unique:true,
+        validate:{
             isEmail:true
-         }
+        }
     },
     password:{
         type:DataTypes.STRING,
@@ -20,6 +20,9 @@ User.init({
         validate:{
             len:[8]
         }
+    },
+    roomId:{
+        type: DataTypes.STRING
     }
 },{
     sequelize,
