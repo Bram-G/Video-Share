@@ -1,21 +1,29 @@
-<div class="col s6 home-cards">
-  <div class="card hoverable">
-    <div >
-      <div class="input-field col s12">
-        <input id="email loginEmail" type="email" class="validate" />
-        <label for="email">Email</label>
+      <div class="container login-div">
+        <div class="row justify-content-center pt-3">
+          <div class="col-md-6 shadow-lg p-3 mt-5 rounded">
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                <!-- Login form -->
+                <h2 class="light-blue-text">Login</h2>
+                <form class="form login-form">
+                  <div class="form-group text-dark row justify-content-center">
+                    <input class="form-input validate" type="email" id="email loginEmail" placeholder="Enter Email" />
+                  </div>
+                  <div class="form-group text-dark row justify-content-center">
+                    <input class="form-input validate" type="password" id="password loginPassword" placeholder="Enter Password" />
+                  </div>
+                  <!-- Log in -->
+                  <div class="row justify-content-center mb-3">
+                    <button class="waves-effect waves-light btn-large" type="submit"><i class = "material-icons right">chevron_right</i>Login</button>
+                  </div>
+                  <!-- Create Acc -->
+                  <div class="row justify-content-center">
+                    <a class="waves-effect waves-light btn-large push-footer-login" href="/signup"><i class = "material-icons right">create</i>Create Account</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="input-field col s12">
-        <input id="password loginPassword" type="password" class="validate" />
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <div class="card-action">
-      <a href="#" class="waves-effect waves-light btn-large"><i
-          class="material-icons right"
-        >create</i>Login</a>
-    </div>
-  </div>
-</div>
+      <script src="js/login.js"></script>

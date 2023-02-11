@@ -7,10 +7,11 @@ body {
 
 footer {
   margin-top: 7em;
-  height: 80px;
+  height: 60px;
 }
 footer h5 {
   text-align: center;
+  margin-top: -2px;
 }
 .home-cards {
   margin-top: 7em;
@@ -28,4 +29,8 @@ video{
 }
 .home-cards {
     margin-top: 7em;
+}
+/* Pushes footer to the bottom of the viewport for the login handlebar */
+.push-footer {
+  margin-bottom: 13rem;
 }
