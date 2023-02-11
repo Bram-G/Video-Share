@@ -1,7 +1,24 @@
-<div id="video-grid">
+    <main>
+      <ul class = "sidenav" id = "mysidenav">
+        <li>
+          <div class = "user-view">
+          </div>
+        </li>
+      </ul>
+      <a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger">Sidenav</a>
+      
+<div id="video-grid blue">
 
 </div>
 
+    </main>
 <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var side = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(side)
+      })
+    </script>
