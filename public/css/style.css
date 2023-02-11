@@ -11,6 +11,7 @@ footer {
 }
 footer h5 {
   text-align: center;
+  margin-top: -2px;
 }
 .home-cards {
   margin-top: 7em;
@@ -28,4 +29,8 @@ video{
 }
 .home-cards {
     margin-top: 7em;
+}
+
+.push-footer {
+  margin-bottom: 14rem;
 }
