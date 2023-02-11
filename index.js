@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const server = require('http').Server(app)
+const socket = require("socket.io");
 const io = require('socket.io')(server)
 const session = require("express-session");
 const exphbs = require("express-handlebars");
