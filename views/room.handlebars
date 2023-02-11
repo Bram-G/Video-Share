@@ -1,10 +1,13 @@
-      <ul class = "sidenav" id = "mysidenav">
-        <li>
-          <div class = "user-view">
-          </div>
+      <ul class = "sidenav row" id = "mysidenav">
+        <li class="col s12">
+            <form action = "/action_page.php">
+                <input type = "file" id="myFile" name="filename" hidden>
+                <label for="myFile">Choose File</label>
+            </form>
         </li>
+        {{!-- maybe have uploaded documents here? --}}
       </ul>
-      <a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger">Sidenav</a>
+      <a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"><i class ="material-icons right">file_upload</i>Upload</a>
     <div class = "container">
         <div class = "row">
         <div class = "col s2" id="video-grid">
