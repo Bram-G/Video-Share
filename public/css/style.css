@@ -7,7 +7,7 @@ body {
 
 footer {
   margin-top: 7em;
-  height: 80px;
+  height: 60px;
 }
 footer h5 {
   text-align: center;
@@ -32,5 +32,5 @@ video{
 }
 
 .push-footer {
-  margin-bottom: 14rem;
+  margin-bottom: 13rem;
 }
