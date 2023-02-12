@@ -5,14 +5,18 @@ const bcrypt = require("bcrypt")
 class User extends Model {}
 
 User.init({
-    // add properites here, ex:
+    // add properties here, ex:
+    name: {
+        type:DataTypes.STRING,
+        allowNull: false
+    },
     email: {
-         type: DataTypes.STRING,
-         allowNull:false,
-         unique:true,
-         validate:{
+        type: DataTypes.STRING,
+        allowNull:false,
+        unique:true,
+        validate:{
             isEmail:true
-         }
+        }
     },
     password:{
         type:DataTypes.STRING,
