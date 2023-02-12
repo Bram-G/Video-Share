@@ -10,8 +10,13 @@ const exphbs = require("express-handlebars");
 
 
 router.get("/", (req,res)=> {
-    res.redirect(`/room/${uuidV4()}`)
+    if (!req.session.user) {
+        return res.render('login');
+    } else {
+        res.redirect(`/room/${uuidV4()}`)
     console.log("connected to /rooms")
+    }
+
 })
 
 router.get("/:room", (req,res)=> {
