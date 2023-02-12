@@ -2,12 +2,16 @@ const User = require("./User");
 const Room = require("./Room");
 
 Room.belongsTo(User, {
-    foreignKey: "hostUserId",
+    through: "hostUserId",
+    as: "Host"
 })
 
 Room.hasMany(User);
 
-User.belongsTo(Room)
+User.belongsTo(Room, {
+    through: "hostUserId",
+    as: "Participant"
+})
 
 module.exports = {
     Room, User

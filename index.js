@@ -31,7 +31,7 @@ io.on('connection',(socket) => {
 
 
 
-sequelize.sync({ force: true }).then(function() {
+sequelize.sync({ force: false }).then(function() {
     server.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
