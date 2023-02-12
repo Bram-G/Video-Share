@@ -1,7 +1,6 @@
 const sequelize = require('../config/connection.js');
 const User = require('../models/userModel.js');
 
-// create user data
 const users = [];
 
 async function seed(){
