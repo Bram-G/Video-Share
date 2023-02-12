@@ -5,7 +5,11 @@ const bcrypt = require("bcrypt")
 class User extends Model {}
 
 User.init({
-    // add properites here, ex:
+    // add properties here, ex:
+    name: {
+        type:DataTypes.STRING,
+        allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         allowNull:false,
@@ -20,9 +24,6 @@ User.init({
         validate:{
             len:[8]
         }
-    },
-    roomId:{
-        type: DataTypes.STRING
     }
 },{
     sequelize,

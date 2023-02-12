@@ -7,9 +7,7 @@ Room.belongsTo(User, {
 
 Room.hasMany(User);
 
-User.belongsTo(Room, {
-    foreignKey: "roomId",
-})
+User.belongsTo(Room)
 
 module.exports = {
     Room, User

@@ -31,16 +31,8 @@ io.on('connection',(socket) => {
 
 
 
-sequelize.sync({ force: false }).then(function() {
+sequelize.sync({ force: true }).then(function() {
     server.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
 });
-
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.sidenav');
-//     var instances = M.Sidenav.init(elems, options);
-//   });
-
