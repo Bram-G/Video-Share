@@ -20,8 +20,8 @@ footer h5 {
 #video-grid {
     display: grid;
     justify-content: space-around;
-    grid-template-columns: repeat(auto-fill, 325px);
-    grid-auto-rows: 325px;
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-auto-rows: 350px;
     margin-top: 2%;
     gap: 30px;
 }
@@ -32,7 +32,53 @@ video{
     object-fit: cover;
     border-radius: 7px;
     margin-bottom: 10px;
+    transform: rotateY(180deg);
+
 }
+#chatBox{
+  overflow-y: scroll;
+  list-style-type: none;
+  /* margin: 5px; */
+  border:rgba(77, 165, 187, 0.168) solid 1.25px;
+  border-style:inset ;
+  width: 275px;
+  /* height: 400px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: space-between;
+  position: absolute;
+  right: 0;
+  top: 64;
+  height: 93%;
+  max-height: 93%;
+}
+#message-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#message-container div {
+  width: 100%;
+  background-color: beige;
+  padding: 5px;
+}
+#message-container div:nth-child(2n){
+  background-color: bisque;
+}
+#send-container {
+  position: fixed;
+  border: gray dotted 5px;
+  width: 275px;
+  height: 60px;
+  display: flex;
+  /* margin: 5px; */
+}
+
+
 
 .uploadBtn {
   width: 100%;
@@ -49,3 +95,20 @@ video{
 .push-footer-signup {
   margin-bottom: 14.3rem;
 }
+
+#screenDisplay {
+  border: 1px solid #999; 
+  width: 98%;
+  max-width: 860px;
+  transform: rotateY(180deg);
+  /* display: none; */
+}
+
+#screenSharing {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 2.5rem;
+
+}
+
