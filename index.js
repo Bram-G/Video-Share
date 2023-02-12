@@ -31,6 +31,7 @@ io.on('connection',(socket) => {
             userName = users[socket.id] 
             socket.to(roomId).emit('user-disconnected', userName)
             delete users[socket.id]
+            console.log(users)
         })
     })
     socket.on('send-chat-message', message =>{
