@@ -1,20 +1,39 @@
-      <ul class = "sidenav row" id = "mysidenav">
-        <li class="col s12">
-            <form action = "/action_page.php">
-                <input type = "file" id="myFile" name="filename" hidden>
-                <label for="myFile" class="btn sidenav-trigger waves-effect waves-light btn-large uploadBtn">Choose File</label>
-            </form>
-        </li>
-        {{!-- maybe have uploaded documents here? --}}
-      </ul>
-      <a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"><i class ="material-icons right">file_upload</i>Upload</a>
+<ul class = "sidenav row" id = "mysidenav">
+<li class="col s12">
+    <form action = "/action_page.php">
+        <input type = "file" id="myFile" name="filename" hidden>
+        <label for="myFile" class="btn sidenav-trigger waves-effect waves-light btn-large uploadBtn">Choose File</label>
+    </form>
+</li>
+{{!-- maybe have uploaded documents here? --}}
+</ul>
+<a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"><i class ="material-icons right">file_upload</i>Upload</a>
 
-    <div class = "container">
-        <div class = "row">
-            <div class = "col s12" id="video-grid">
-            </div>
+
+{{!-- Video --}}
+<div class = "container">
+    <div class = "row">
+        <div class = "col s12" id="video-grid">
         </div>
     </div>
+</div>
+
+{{!-- Screen capture --}}
+<div id="screenSharing">
+    <p>
+    <button id="start">Start Capture</button>&nbsp;<button id="stop">
+        Stop Capture
+    </button>
+    </p>
+
+    <video id="screenDisplay" autoplay></video>
+    <br />
+
+    {{!-- <strong>Log:</strong> --}}
+    <br />
+    <pre id="log"></pre>
+</div>
+{{!-- Chat box --}}
 <div id="chatBox">
     <div id="message-container"></div>
     <footer id="chatFooter"> 

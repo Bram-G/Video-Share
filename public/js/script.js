@@ -11,6 +11,14 @@ const messageInput = document.getElementById('message-input')
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
+
+//Screen capture
+const videoElem = document.getElementById("screenDisplay");
+const logElem = document.getElementById("log");
+const startElem = document.getElementById("start");
+const stopElem = document.getElementById("stop");
+
+
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -84,3 +92,41 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call
 };
 
+
+
+
+
+//Screen capture
+const displayMediaOptions = {
+  video: {
+    displaySurface: "window"
+  },
+  audio: false
+};
+
+// Set event listeners for the start and stop buttons
+startElem.addEventListener("click", (evt) => {
+  startCapture();
+}, false);
+
+stopElem.addEventListener("click", (evt) => {
+  stopCapture();
+}, false);
+
+async function startCapture() {
+  logElem.innerHTML = "";
+
+  try {
+    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    dumpOptionsInfo();
+  } catch (err) {
+    console.error(`Error: ${err}`);
+  }
+}
+
+function stopCapture(evt) {
+  let tracks = videoElem.srcObject.getTracks();
+
+  tracks.forEach((track) => track.stop());
+  videoElem.srcObject = null;
+}
