@@ -32,6 +32,8 @@ video{
     object-fit: cover;
     border-radius: 7px;
     margin-bottom: 10px;
+    transform: rotateY(180deg);
+
 }
 
 .uploadBtn {
