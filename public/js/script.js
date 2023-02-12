@@ -5,6 +5,9 @@ const myPeer = new Peer(undefined, {
   host: "0.peerjs.com",
   port: "443",
 });
+const messageForm = document.getElementById('send-container')
+const messagContainer = document.getElementById('message-container')
+const messageInput = document.getElementById('message-input')
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -28,9 +31,34 @@ navigator.mediaDevices.getUserMedia({
 
 })
 
+appendMessage( `user` + " Joined room " + ROOM_ID)
+// socket.emit('new-user', userName)
+socket.on('chat-message', data =>{
+  appendMessage(`${data.name}: ${data.message}`)
+})
+socket.on('user-connected', userId =>{
+  appendMessage(`${userId} connected`)
+})
+
+function appendMessage(message){
+  const messageElement = document.createElement('div')
+  messageElement.innerText = message
+  messagContainer.append(messageElement)
+}
+
+messageForm.addEventListener('submit', e=>{
+  e.preventDefault()
+  const message = messageInput.value
+  appendMessage(`You: ${message}`)
+  socket.emit('send-chat-message', message)
+  messageInput.value = ""
+})
+
 socket.on('user-disconnected', (userId) => {
   console.log("User Disconnected " +userId)
   if (peers[userId]) peers[userId].close()
+  appendMessage(`${userId} disconnected`)
+
 })
 
 myPeer.on('open', (id) => {
