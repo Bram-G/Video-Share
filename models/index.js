@@ -1,14 +1,14 @@
-const User = require("./User");
-const Room = require("./Room");
+// const User = require("./User");
+// const Room = require("./Room");
 
-Room.belongsTo(User, {
-    foreignKey: "hostUserId",
-})
+// Room.belongsTo(User, {
+//     foreignKey: "hostUserId",
+// })
 
-Room.hasMany(User);
+// Room.hasMany(User);
 
-User.belongsTo(Room)
+// User.belongsTo(Room)
 
-module.exports = {
-    Room, User
-};
+// module.exports = {
+//     Room, User
+// };
