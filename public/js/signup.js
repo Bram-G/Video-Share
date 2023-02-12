@@ -18,7 +18,7 @@ const signUpHandler = async (event) => {
             alert(`Error: ${JSON.stringify(response.statusText)}`);
         };
     } else {
-        alert("Please enter a name, email, and password that is at least 8 characters long/")
+        alert("Please enter a name, email, and password that is at least 8 characters long.")
     }
 }
 
