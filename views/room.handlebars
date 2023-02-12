@@ -2,7 +2,7 @@
         <li class="col s12">
             <form action = "/action_page.php">
                 <input type = "file" id="myFile" name="filename" hidden>
-                <label for="myFile">Choose File</label>
+                <label for="myFile" class="btn sidenav-trigger waves-effect waves-light btn-large uploadBtn">Choose File</label>
             </form>
         </li>
         {{!-- maybe have uploaded documents here? --}}
@@ -11,8 +11,8 @@
 
     <div class = "container">
         <div class = "row">
-        <div class = "col s2" id="video-grid">
-        </div>
+            <div class = "col s12" id="video-grid">
+            </div>
         </div>
     </div>
 <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
