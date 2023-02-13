@@ -3,10 +3,8 @@
 }
 
 footer {
-  /* margin-top: 7em; */
+  margin-top: -5.5em;
   height: 45px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }
 footer h5 {
@@ -73,7 +71,7 @@ video{
   background-color: bisque;
 }
 #send-container {
-  position: fixed;
+  position: relative;
   border: gray dotted 5px;
   width: 275px;
   height: 60px;
@@ -91,11 +89,16 @@ video{
 }
 /* Pushes footer to the bottom of the viewport for the login handlebar */
 .push-footer-login {
-  margin-bottom: 13rem;
+  margin-bottom: 13.7rem;
 }
 
 .push-footer-signup {
   margin-bottom: 14.3rem;
+}
+
+.push-footer-home {
+  margin-bottom: 9.3rem;
+  margin-top: -2.7rem;
 }
 
 #screenDisplay {
@@ -116,3 +119,10 @@ video{
   justify-content: space-evenly;
 }
 
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: teal;
+}

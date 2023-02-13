@@ -1,7 +1,3 @@
-// const { url } = require("inspector");
-
-// const { url } = require("inspector");
-
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
@@ -146,4 +142,5 @@ youtubeID.addEventListener('click', (evt) => {
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
  })
+
 
