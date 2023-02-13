@@ -139,3 +139,22 @@ function fileShare(event) {
 }
 
 document.querySelector('.fileShare').addEventListener('submit', fileShare)
+//Youtube
+let youtubeID = document.getElementById('youtubeForm')
+youtubeID.addEventListener('click', (evt) => {
+  let youtubeInput = document.getElementById('youtubeInput').value
+  let iframe = document.getElementById('iframeDisplay')
+  let urlArray = youtubeInput.split("watch?v=")
+  urlArray.splice(1, 0, "embed/")
+  let youtubeSource = urlArray.join("")
+  iframe.setAttribute("src", youtubeSource)
+ })
+
+
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
