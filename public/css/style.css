@@ -82,7 +82,6 @@ video{
 }
 
 
-
 .uploadBtn {
   width: 100%;
 }
@@ -100,7 +99,6 @@ video{
 }
 
 #screenDisplay {
-  border: 1px solid #999; 
   width: 98%;
   max-width: 860px;
   transform: rotateY(180deg);
@@ -109,9 +107,12 @@ video{
 
 #screenSharing {
   display: flex;
-  position: fixed;
   bottom: 0;
   margin-bottom: 2.5rem;
+}
 
+.sideNav{
+  display: flex;
+  justify-content: space-evenly;
 }
 

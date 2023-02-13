@@ -1,13 +1,19 @@
 <ul class = "sidenav row" id = "mysidenav">
-<li class="col s12">
+<li class="col s4">
     <form action = "/action_page.php">
         <input type = "file" id="myFile" name="filename" hidden>
-        <label for="myFile" class="btn sidenav-trigger waves-effect waves-light btn-large uploadBtn">Choose File</label>
+        <label for="myFile" class="btn sidenav-trigger btn-floating btn-large waves-effect waves-light uploadBtn sideNavBtn"><i class="material-icons">cloud_upload</i></label>
     </form>
 </li>
+<div class="col s4 sideNavBtn">
+    <a id="start" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">screen_share</i></a>
+</div>
+<div class="col s4 sideNavBtn">
+    <a id="stop" class="btn-floating btn-large waves-effect waves-light"><i  class="material-icons">stop_screen_share</i></a>
+</div>
 {{!-- maybe have uploaded documents here? --}}
 </ul>
-<a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"><i class ="material-icons right">file_upload</i>Upload</a>
+<a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"></i>Upload and Screenshare</a>
 
 
 {{!-- Video --}}
@@ -20,11 +26,6 @@
 
 {{!-- Screen capture --}}
 <div id="screenSharing">
-    <p>
-    <button id="start">Start Capture</button>&nbsp;<button id="stop">
-        Stop Capture
-    </button>
-    </p>
 
     <video id="screenDisplay" autoplay></video>
     <br />
@@ -40,7 +41,11 @@
       <input type="text" autocomplete="off" id="message-input">
       <button type="submit" id="send-button">Send</button>
     </form>
+
+
 </div>
+
+
 <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/script.js" defer></script>
