@@ -25,14 +25,14 @@ footer h5 {
     margin-top: 2%;
     gap: 30px;
   }
-  
+/*   
 screenStream {
   width: 100%;
   height: 100%;
   border-radius: 7px;
   margin-bottom: 10px;
-}
-video{
+} */
+video, screenStream{
     width: 100%;
     height: 100%;
     object-fit: cover;

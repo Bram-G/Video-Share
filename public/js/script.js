@@ -139,7 +139,7 @@ stopElem.addEventListener("click", (evt) => {
   stopCapture();
 }, false);
 
-async function startCapture() {
+function startCapture() {
   logElem.innerHTML = "";
     navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
       addScreenStream(myScreen,stream)
