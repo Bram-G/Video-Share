@@ -114,3 +114,10 @@ video{
   justify-content: space-evenly;
 }
 
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: teal;
+}
