@@ -11,7 +11,8 @@ const messageInput = document.getElementById('message-input')
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
-
+// const messages = document.getElementById("messages");
+const userName = {};
 //Screen capture
 const videoElem = document.getElementById("screenDisplay");
 const logElem = document.getElementById("log");
@@ -39,13 +40,13 @@ navigator.mediaDevices.getUserMedia({
 
 })
 
-appendMessage( `user` + " Joined room " + ROOM_ID)
+appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 // socket.emit('new-user', userName)
 socket.on('chat-message', data =>{
-  appendMessage(`${data.name}: ${data.message}`)
+  appendMessage(`${data.userName}: ${data.message}`)
 })
 socket.on('user-connected', userId =>{
-  appendMessage(`${userId} connected`)
+  appendMessage(`${userName} connected`)
 })
 
 function appendMessage(message){
