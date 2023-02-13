@@ -86,11 +86,16 @@ video{
 }
 /* Pushes footer to the bottom of the viewport for the login handlebar */
 .push-footer-login {
-  margin-bottom: 13rem;
+  margin-bottom: 13.7rem;
 }
 
 .push-footer-signup {
   margin-bottom: 14.3rem;
+}
+
+.push-footer-home {
+  margin-bottom: 9.3rem;
+  margin-top: -2.7rem;
 }
 
 #screenDisplay {
