@@ -1,0 +1,136 @@
+* {
+  font-family: "Lato", sans-serif;
+}
+
+footer {
+  margin-top: -5.5em;
+  height: 45px;
+  width: 100%;
+}
+footer h5 {
+  text-align: center;
+  margin-top: -10px;
+}
+.home-cards {
+  margin-top: 7em;
+}
+
+#video-grid {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-auto-rows: 350px;
+    margin-top: 2%;
+    gap: 30px;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    transform: rotateY(180deg);
+
+}
+#chatBox{
+  overflow: scroll;
+  list-style-type: none;
+  /* margin: 5px; */
+  border:rgba(77, 165, 187, 0.168) solid 1.25px;
+  border-style:inset ;
+  width: 275px;
+  /* height: 400px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: space-between;
+  position: absolute;
+  right: 0;
+  top: 64;
+  height: 93%;
+  max-height: 93%;
+  word-wrap: break-word;
+
+}
+#message-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+}
+#message-container div {
+  width: 100%;
+  background-color: beige;
+  padding: 5px;
+}
+#message-container div:nth-child(2n){
+  background-color: bisque;
+}
+#send-container {
+  position: relative;
+  border: gray dotted 5px;
+  width: 275px;
+  height: 60px;
+  display: flex;
+  /* margin: 5px; */
+}
+
+
+.uploadBtn {
+  width: 100%;
+}
+
+.home-cards {
+    margin-top: 7em;
+}
+/* Pushes footer to the bottom of the viewport for the login handlebar */
+.push-footer-login {
+  margin-bottom: 13.7rem;
+}
+
+.chatBtn {
+  height: 100%;
+}
+
+.replyIcon {
+  margin-top: 8px;
+}
+
+.push-footer-signup {
+  margin-bottom: 14.3rem;
+}
+
+.push-footer-home {
+  margin-bottom: 9.3rem;
+  margin-top: -2.7rem;
+}
+
+#screenDisplay {
+  width: 98%;
+  max-width: 860px;
+  transform: rotateY(180deg);
+  /* display: none; */
+}
+
+#screenSharing {
+  display: flex;
+  bottom: 0;
+  margin-bottom: 2.5rem;
+}
+
+.sideNav{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: teal;
+}

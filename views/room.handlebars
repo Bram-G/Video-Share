@@ -1,0 +1,73 @@
+<ul class = "sidenav row" id = "mysidenav">
+<li class="col s4">
+    <form class="fileShare" action = "/action_page.php">
+        <input type = "file" id="myFile" name="filename" hidden>
+        <label for="myFile" class="btn sidenav-trigger btn-floating btn-large waves-effect waves-light uploadBtn sideNavBtn"><i class="material-icons">cloud_upload</i></label>
+    </form>
+</li>
+<div class="col s4 sideNavBtn">
+    <a id="start" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">screen_share</i></a>
+</div>
+<div class="col s4 sideNavBtn">
+    <a id="stop" class="btn-floating btn-large waves-effect waves-light"><i  class="material-icons">stop_screen_share</i></a>
+</div>
+{{!-- maybe have uploaded documents here? --}}
+</ul>
+<a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"></i>Upload and Screenshare</a>
+
+
+{{!-- Video --}}
+<div class = "container">
+    <div class = "row">
+        <div class = "col s12" id="video-grid">
+        </div>
+    </div>
+</div>
+
+{{!-- Screen capture --}}
+<div id="screenSharing">
+
+    <video id="screenDisplay" autoplay></video>
+    <br />
+
+    {{!-- <strong>Log:</strong> --}}
+    <br />
+    <pre id="log"></pre>
+</div>
+
+
+{{!-- Embeded youtube
+<iframe id = "iframeDisplay" width="50%" height="40%" src="">
+</iframe>
+
+<div class="row">
+<div class="input-field col s6">
+    <input value="" id="youtubeInput" type="text" class="validate">
+    <label class="active" for="first_name2">Enter YouTube Link</label>
+    <div class="row">
+    <button class="btn waves-effect waves-light" id="youtubeForm" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
+</div>
+</div>
+</div> --}}
+
+{{!-- Chat box --}}
+<div id="chatBox">
+    <div id="message-container"></div>
+    <form id= "send-container">
+      <input type="text" autocomplete="off" id="message-input">
+        <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
+    </form>
+</div>
+
+<script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var side = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(side)
+      })
+    </script>
