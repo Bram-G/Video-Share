@@ -1,3 +1,7 @@
+// const { url } = require("inspector");
+
+// const { url } = require("inspector");
+
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
@@ -131,3 +135,15 @@ function stopCapture(evt) {
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
+
+//Youtube
+let youtubeID = document.getElementById('youtubeForm')
+youtubeID.addEventListener('click', (evt) => {
+  let youtubeInput = document.getElementById('youtubeInput').value
+  let iframe = document.getElementById('iframeDisplay')
+  let urlArray = youtubeInput.split("watch?v=")
+  urlArray.splice(1, 0, "embed/")
+  let youtubeSource = urlArray.join("")
+  iframe.setAttribute("src", youtubeSource)
+ })
+
