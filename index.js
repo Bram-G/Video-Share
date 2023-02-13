@@ -1,27 +1,23 @@
 const express = require("express");
 const app = express();
-const server = require('http').Server(app)
-// const socket = require("socket.io");
+const http = require("http");
+const socket = require("socket.io");
+const server = http.createServer(app)
+
 const io = require('socket.io')(server)
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const allRoutes = require("./controllers");
 const {v4:uuidV4} = require('uuid');
 var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const PORT = process.env.PORT || 3000;
-const users = {}
-const hbs = exphbs.create({});
-app.use(express.urlencoded({extended:true}))
-app.use(express.static("public"));
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
 
-app.use("/", allRoutes);
+
+const users = {}
+
 
 io.on('connection',(socket) => {
     socket.on('join-room',(roomId,userId) =>{
@@ -31,6 +27,7 @@ io.on('connection',(socket) => {
             userName = users[socket.id] 
             socket.to(roomId).emit('user-disconnected', userName)
             delete users[socket.id]
+            console.log(users)
         })
     })
     socket.on('send-chat-message', message =>{
@@ -42,9 +39,30 @@ io.on('connection',(socket) => {
     })
 })
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+const sess = {
+    // secret: process.env.SESSION_SECRET,
+    secret: "secret",
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2,
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize,
+    }),
+};
 
-sequelize.sync({ force: true }).then(function() {
+app.use(session(sess));
+app.use(express.static("public"));
+const hbs = exphbs.create({});
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+app.use("/", allRoutes);
+
+sequelize.sync({ force: false }).then(function() {
     server.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
