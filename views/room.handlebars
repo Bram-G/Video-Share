@@ -36,7 +36,7 @@
 </div>
 
 
-{{!-- Embeded youtube --}}
+{{!-- Embeded youtube
 <iframe id = "iframeDisplay" width="50%" height="40%" src="">
 </iframe>
 
@@ -50,22 +50,16 @@
     </button>
 </div>
 </div>
-</div>
-
-
+</div> --}}
 
 {{!-- Chat box --}}
 <div id="chatBox">
     <div id="message-container"></div>
     <form id= "send-container">
-
       <input type="text" autocomplete="off" id="message-input">
-      <button type="submit" id="send-button">Send</button>
-        <input type="text" id="message-input">
-        <button class="waves-effect waves-light btn-small" type="submit" id="send-button">Send</button>
+        <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
     </form>
 </div>
-
 
 <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
