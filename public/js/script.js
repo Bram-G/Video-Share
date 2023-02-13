@@ -132,3 +132,10 @@ function stopCapture(evt) {
   videoElem.srcObject = null;
 }
 
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
