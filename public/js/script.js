@@ -9,7 +9,6 @@ const messageForm = document.getElementById('send-container')
 const messagContainer = document.getElementById('message-container')
 const messageInput = document.getElementById('message-input')
 const myVideo = document.createElement('video')
-const myScreen = document.createElement('screenStream')
 myVideo.muted = true
 const peers = {}
 // const messages = document.getElementById("messages");
@@ -101,12 +100,12 @@ const connectToNewUser = (userId, stream) => {
 
 const connectToNewUserScreen = (userId, stream) => {
   const call = myPeer.call(userId, stream)
-  const myScreen = document.createElement('screenStream')
+  const videoElem = document.getElementById("screenDisplay")
   call.on('stream', userVideoScreen => {
-    addVideoStream(myScreen, userVideoScreen)
+    addVideoStream(videoElem, userVideoScreen)
   })
   call.on('close', () => {
-    myScreen.remove()
+    videoElem.remove()
   })
 
   // peers[userId] = call
@@ -114,11 +113,11 @@ const connectToNewUserScreen = (userId, stream) => {
 
 
 const addScreenStream = (screen, stream) => {
-  screen.srcObject = stream
-  screen.addEventListener('loadedmetadata', () => {
-    screen.play()
+  videoElem.srcObject = stream
+  videoElem.addEventListener('loadedmetadata', () => {
+    videoElem.play()
   })
-  videoGrid.append(screen)
+  videoElem.append(screen)
 };
 
 
@@ -142,12 +141,12 @@ stopElem.addEventListener("click", (evt) => {
 function startCapture() {
   logElem.innerHTML = "";
     navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
-      addScreenStream(myScreen,stream)
+      addScreenStream(videoElem,stream)
       myPeer.on('call', call =>{
         call.answer(stream);
-        const Screen = document.createElement('screenStream');
+        const videoElem = document.getElementById("screenDisplay");
         call.on('stream', (userScreenShare) =>{
-          addVideoStream(myScreen,userScreenShare)
+          addVideoStream(videoElem,userScreenShare)
         })
 
       })
