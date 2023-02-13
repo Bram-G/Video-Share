@@ -92,6 +92,14 @@ video{
   margin-bottom: 13.7rem;
 }
 
+.chatBtn {
+  height: 100%;
+}
+
+.replyIcon {
+  margin-top: 8px;
+}
+
 .push-footer-signup {
   margin-bottom: 14.3rem;
 }
