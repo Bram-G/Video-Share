@@ -9,6 +9,7 @@ const messageForm = document.getElementById('send-container')
 const messagContainer = document.getElementById('message-container')
 const messageInput = document.getElementById('message-input')
 const myVideo = document.createElement('video')
+const myScreen = document.createElement('screenStream')
 myVideo.muted = true
 const peers = {}
 // const messages = document.getElementById("messages");
@@ -36,6 +37,7 @@ navigator.mediaDevices.getUserMedia({
   socket.on('user-connected', userId => {
     console.log("user connected" + userId)
     connectToNewUser(userId, stream)
+
   })
 
 })
@@ -43,10 +45,14 @@ navigator.mediaDevices.getUserMedia({
 appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 // socket.emit('new-user', userName)
 socket.on('chat-message', data =>{
-  appendMessage(`${data.userName}: ${data.message}`)
+  console.log(data.userNameChat)
+  appendMessage(`${data.userNameChat}: ${data.message}`)
 })
 socket.on('user-connected', userId =>{
   appendMessage(`${userName} connected`)
+})
+socket.on('screen-share',myVideo,stream =>{
+  
 })
 
 function appendMessage(message){
@@ -93,8 +99,27 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call
 };
 
+const connectToNewUserScreen = (userId, stream) => {
+  const call = myPeer.call(userId, stream)
+  const myScreen = document.createElement('screenStream')
+  call.on('stream', userVideoScreen => {
+    addVideoStream(myScreen, userVideoScreen)
+  })
+  call.on('close', () => {
+    myScreen.remove()
+  })
+
+  // peers[userId] = call
+};
 
 
+const addScreenStream = (screen, stream) => {
+  screen.srcObject = stream
+  screen.addEventListener('loadedmetadata', () => {
+    screen.play()
+  })
+  videoGrid.append(screen)
+};
 
 
 //Screen capture
@@ -116,14 +141,21 @@ stopElem.addEventListener("click", (evt) => {
 
 async function startCapture() {
   logElem.innerHTML = "";
+    navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
+      addScreenStream(myScreen,stream)
+      myPeer.on('call', call =>{
+        call.answer(stream);
+        const Screen = document.createElement('screenStream');
+        call.on('stream', (userScreenShare) =>{
+          addVideoStream(myScreen,userScreenShare)
+        })
 
-  try {
-    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-    dumpOptionsInfo();
-  } catch (err) {
-    console.error(`Error: ${err}`);
+      })
+
+    })
+
   }
-}
+
 
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
