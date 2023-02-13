@@ -31,7 +31,7 @@ io.on('connection',(socket) => {
         })
     })
     socket.on('send-chat-message', message =>{
-        socket.broadcast.emit('chat-message', {message: message, name:users[socket.id] })
+        socket.broadcast.emit('chat-message', {message: message, name:users[socket.id], userName:session.user })
     })
     socket.on('new-user',userId =>{
         users[socket.id] = userId
