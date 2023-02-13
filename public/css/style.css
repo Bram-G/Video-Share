@@ -34,7 +34,7 @@ video{
 
 }
 #chatBox{
-  overflow-y: scroll;
+  overflow: scroll;
   list-style-type: none;
   /* margin: 5px; */
   border:rgba(77, 165, 187, 0.168) solid 1.25px;
@@ -50,6 +50,8 @@ video{
   top: 64;
   height: 93%;
   max-height: 93%;
+  word-wrap: break-word;
+
 }
 #message-container {
   width: 100%;
@@ -58,6 +60,7 @@ video{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  word-wrap: break-word;
 }
 #message-container div {
   width: 100%;
