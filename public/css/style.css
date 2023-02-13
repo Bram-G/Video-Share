@@ -3,10 +3,8 @@
 }
 
 footer {
-  /* margin-top: 7em; */
+  margin-top: -5.5em;
   height: 45px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }
 footer h5 {
@@ -70,7 +68,7 @@ video{
   background-color: bisque;
 }
 #send-container {
-  position: fixed;
+  position: relative;
   border: gray dotted 5px;
   width: 275px;
   height: 60px;

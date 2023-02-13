@@ -131,3 +131,4 @@ function stopCapture(evt) {
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
+
