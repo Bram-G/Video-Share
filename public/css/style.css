@@ -64,11 +64,11 @@ video{
 }
 #message-container div {
   width: 100%;
-  background-color: beige;
+  background-color: lightblue;
   padding: 5px;
 }
 #message-container div:nth-child(2n){
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 #send-container {
   position: relative;
