@@ -1,19 +1,11 @@
-<ul class = "sidenav row" id = "mysidenav">
-<li class="col s4">
-    <form class="fileShare" action = "/action_page.php">
-        <input type = "file" id="myFile" name="filename" hidden>
-        <label for="myFile" class="btn sidenav-trigger btn-floating btn-large waves-effect waves-light uploadBtn sideNavBtn"><i class="material-icons">cloud_upload</i></label>
-    </form>
-</li>
-<div class="col s4 sideNavBtn">
+<div class="screenshareBtn">
+<div class="col s4">
     <a id="start" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">screen_share</i></a>
 </div>
-<div class="col s4 sideNavBtn">
+<div class="col s4">
     <a id="stop" class="btn-floating btn-large waves-effect waves-light"><i  class="material-icons">stop_screen_share</i></a>
 </div>
-{{!-- maybe have uploaded documents here? --}}
-</ul>
-<a href = "#" data-target = "mysidenav" class ="btn sidenav-trigger waves-effect waves-light btn-small"></i>Upload and Screenshare</a>
+</div>
 
 
 {{!-- Video --}}
@@ -25,7 +17,7 @@
 </div>
 
 {{!-- Screen capture --}}
-<div id="screenSharing">
+<div id="screenDisplayGrid">
 
     <video id="screenDisplay" autoplay></video>
     <br />
@@ -36,8 +28,9 @@
 </div>
 
 
-{{!-- Embeded youtube --}}
-<iframe id = "iframeDisplay" width="840" height="630" src="">
+{{!-- Embedded youtube --}}
+<div class="youtubeDiv">
+<iframe id = "iframeDisplay" width="50%" height="40%" src="">
 </iframe>
 
 <div class="row">
@@ -51,10 +44,11 @@
 </div>
 </div>
 </div>
-
+</div>
+</div>
 {{!-- Chat box --}}
 <div id="chatBox">
-    <div id="message-container"></div>
+    <ul data-name="{{name}}" id="message-container"></ul>
     <form id= "send-container">
       <input type="text" autocomplete="off" id="message-input">
         <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
@@ -71,3 +65,4 @@
         M.Sidenav.init(side)
       })
     </script>
+  
