@@ -132,6 +132,13 @@ function stopCapture(evt) {
   videoElem.srcObject = null;
 }
 
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
 youtubeID.addEventListener('click', (evt) => {
@@ -144,3 +151,10 @@ youtubeID.addEventListener('click', (evt) => {
  })
 
 
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
