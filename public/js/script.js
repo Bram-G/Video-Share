@@ -36,6 +36,7 @@ navigator.mediaDevices.getUserMedia({
   socket.on('user-connected', userId => {
     console.log("user connected" + userId)
     connectToNewUser(userId, stream)
+
   })
 
 })
@@ -43,10 +44,14 @@ navigator.mediaDevices.getUserMedia({
 appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 // socket.emit('new-user', userName)
 socket.on('chat-message', data =>{
-  appendMessage(`${data.userName}: ${data.message}`)
+  console.log(data.userNameChat)
+  appendMessage(`${data.userNameChat}: ${data.message}`)
 })
 socket.on('user-connected', userId =>{
   appendMessage(`${userName} connected`)
+})
+socket.on('screen-share',myVideo,stream =>{
+  
 })
 
 function appendMessage(message){
@@ -93,8 +98,27 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call
 };
 
+const connectToNewUserScreen = (userId, stream) => {
+  const call = myPeer.call(userId, stream)
+  const videoElem = document.getElementById("screenDisplay")
+  call.on('stream', userVideoScreen => {
+    addVideoStream(videoElem, userVideoScreen)
+  })
+  call.on('close', () => {
+    videoElem.remove()
+  })
+
+  // peers[userId] = call
+};
 
 
+const addScreenStream = (screen, stream) => {
+  videoElem.srcObject = stream
+  videoElem.addEventListener('loadedmetadata', () => {
+    videoElem.play()
+  })
+  videoElem.append(screen)
+};
 
 
 //Screen capture
@@ -114,16 +138,23 @@ stopElem.addEventListener("click", (evt) => {
   stopCapture();
 }, false);
 
-async function startCapture() {
+function startCapture() {
   logElem.innerHTML = "";
+    navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
+      addScreenStream(videoElem,stream)
+      myPeer.on('call', call =>{
+        call.answer(stream);
+        const videoElem = document.getElementById("screenDisplay");
+        call.on('stream', (userScreenShare) =>{
+          addVideoStream(videoElem,userScreenShare)
+        })
 
-  try {
-    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-    dumpOptionsInfo();
-  } catch (err) {
-    console.error(`Error: ${err}`);
+      })
+
+    })
+
   }
-}
+
 
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
@@ -131,30 +162,3 @@ function stopCapture(evt) {
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
-
-function fileShare(event) {
-  event.preventDefault();
-  var file = document.getElementById('myFile').value;
-  console.log(file);
-}
-
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
-//Youtube
-let youtubeID = document.getElementById('youtubeForm')
-youtubeID.addEventListener('click', (evt) => {
-  let youtubeInput = document.getElementById('youtubeInput').value
-  let iframe = document.getElementById('iframeDisplay')
-  let urlArray = youtubeInput.split("watch?v=")
-  urlArray.splice(1, 0, "embed/")
-  let youtubeSource = urlArray.join("")
-  iframe.setAttribute("src", youtubeSource)
- })
-
-
-function fileShare(event) {
-  event.preventDefault();
-  var file = document.getElementById('myFile').value;
-  console.log(file);
-}
-
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
