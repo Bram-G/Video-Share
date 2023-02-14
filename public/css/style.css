@@ -134,3 +134,12 @@ footer a {
 footer a:hover {
   color: teal;
 }
+
+.youtubeDiv {
+  margin-bottom: 15rem;
+  margin-left: 40rem;
+}
+
+iframe {
+  visibility: hidden;
+}

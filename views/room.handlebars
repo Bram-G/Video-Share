@@ -36,7 +36,8 @@
 </div>
 
 
-{{!-- Embeded youtube
+{{!-- Embedded youtube --}}
+<div class="youtubeDiv">
 <iframe id = "iframeDisplay" width="50%" height="40%" src="">
 </iframe>
 
@@ -50,11 +51,12 @@
     </button>
 </div>
 </div>
-</div> --}}
+</div>
+</div>
 
 {{!-- Chat box --}}
 <div id="chatBox">
-    <div id="message-container"></div>
+    <ul data-name="{{name}}" id="message-container"></ul>
     <form id= "send-container">
       <input type="text" autocomplete="off" id="message-input">
         <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
@@ -70,4 +72,11 @@
         var side = document.querySelectorAll('.sidenav');
         M.Sidenav.init(side)
       })
+    </script>
+    <script>
+        const youtubeForm = document.getElementById('youtubeForm');
+        const iframe = document.querySelector("iframe");
+        youtubeForm.addEventListener("click", function() {
+            iframe.style.visibility = "visible";
+        })
     </script>
