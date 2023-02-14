@@ -59,7 +59,7 @@ navigator.mediaDevices.getUserMedia({
             const videoElem = document.getElementById("screenDisplay");
             addScreenStream(videoElem, stream);
 
-            let sender = currentPeer._remoteStream.id.find(function (s) {
+            let sender = currentPeer.peerConnection.getSenders().find(function (s) {
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
@@ -183,13 +183,6 @@ function stopCapture(evt) {
   videoElem.srcObject = null;
 }
 
-function fileShare(event) {
-  event.preventDefault();
-  var file = document.getElementById('myFile').value;
-  console.log(file);
-}
-
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
 youtubeID.addEventListener('click', (evt) => {
@@ -198,7 +191,7 @@ youtubeID.addEventListener('click', (evt) => {
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
   let youtubeSource = urlArray.join("")
-  // iframe.setAttribute("src", youtubeSource)
+  iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
 
  })
