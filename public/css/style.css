@@ -76,7 +76,15 @@ video{
   display: flex;
   /* margin: 5px; */
 }
-
+#screenDisplayGrid{
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-auto-rows: 600px;
+    margin-top: 2%;
+    gap: 30px;
+  
+}
 .uploadBtn {
   width: 100%;
 }

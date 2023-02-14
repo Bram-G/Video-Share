@@ -15,10 +15,11 @@ const peers = {}
 const userName = {};
 //Screen capture
 const videoElem = document.getElementById("screenDisplay");
+const videoElemGrid = document.getElementById("screenDisplayGrid");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
-var currentPeer = null;
+var currentPeer;
 // gets mic and camera data
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -31,9 +32,11 @@ navigator.mediaDevices.getUserMedia({
     call.answer(stream);
     const video = document.createElement('video');
     currentPeer = call;
+    console.log(currentPeer)
 
     call.on('stream', (userVideoStream) => {
       addVideoStream(video, userVideoStream)
+      
     })
   })
   socket.on('user-connected', userId => {
@@ -49,13 +52,15 @@ navigator.mediaDevices.getUserMedia({
         
           const screenStream = stream;
           window.stream = stream;
+          let videoTrack = screenStream.getVideoTracks()[0]
+          // console.log(screenStream.getVideoTracks()[0])
 
           if (myPeer) {
             console.log("Current Peer", currentPeer);
             const videoElem = document.getElementById("screenDisplay");
             addScreenStream(videoElem, stream);
 
-            let sender = currentPeer.peerConnection.getSenders().find(function (s) {
+            let sender = currentPeer._remoteStream.id.find(function (s) {
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
@@ -149,7 +154,7 @@ const addScreenStream = (screen, stream) => {
   videoElem.addEventListener('loadedmetadata', () => {
     videoElem.play()
   })
-  videoElem.append(screen)
+  videoElemGrid.append(screen)
 };
 
 
