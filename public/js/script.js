@@ -8,17 +8,15 @@ const myPeer = new Peer(undefined, {
 const messageForm = document.getElementById('send-container')
 const messagContainer = document.getElementById('message-container')
 const messageInput = document.getElementById('message-input')
+const userName = messagContainer.getAttribute("data-name");
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
-// const messages = document.getElementById("messages");
-const userName = {};
 //Screen capture
 const videoElem = document.getElementById("screenDisplay");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
-
 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -45,8 +43,16 @@ appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 socket.on('chat-message', data =>{
   appendMessage(`${data.userName}: ${data.message}`)
 })
-socket.on('user-connected', userId =>{
-  appendMessage(`${userName} connected`)
+socket.on('user-connected', (userName) =>{
+  const msg = document.createElement("li");
+  msg.textContent = `${userName} has joined the room.`;
+  messagContainer.appendChild(msg);
+})
+
+socket.on('youtube-source-in', youtubeSource => {
+  console.log(youtubeSource)
+  let iframe = document.getElementById('iframeDisplay')
+  iframe.setAttribute("src", youtubeSource)
 })
 
 function appendMessage(message){
@@ -142,19 +148,13 @@ document.querySelector('.fileShare').addEventListener('submit', fileShare)
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
 youtubeID.addEventListener('click', (evt) => {
+  alert('button clicked')
   let youtubeInput = document.getElementById('youtubeInput').value
-  let iframe = document.getElementById('iframeDisplay')
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
   let youtubeSource = urlArray.join("")
-  iframe.setAttribute("src", youtubeSource)
+  // iframe.setAttribute("src", youtubeSource)
+  socket.emit('youtube-socket', youtubeSource)
+
  })
 
-
-function fileShare(event) {
-  event.preventDefault();
-  var file = document.getElementById('myFile').value;
-  console.log(file);
-}
-
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
