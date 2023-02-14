@@ -72,7 +72,6 @@ video{
 }
 #send-container {
   position: relative;
-  border: gray dotted 5px;
   width: 275px;
   height: 60px;
   display: flex;
@@ -93,11 +92,7 @@ video{
 }
 
 .chatBtn {
-  height: 100%;
-}
-
-.replyIcon {
-  margin-top: 8px;
+  margin-top: .8rem;
 }
 
 .push-footer-signup {
