@@ -64,15 +64,14 @@ video{
 }
 #message-container div {
   width: 100%;
-  background-color: beige;
+  background-color: lightblue;
   padding: 5px;
 }
 #message-container div:nth-child(2n){
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 #send-container {
   position: relative;
-  border: gray dotted 5px;
   width: 275px;
   height: 60px;
   display: flex;
@@ -93,11 +92,7 @@ video{
 }
 
 .chatBtn {
-  height: 100%;
-}
-
-.replyIcon {
-  margin-top: 8px;
+  margin-top: .8rem;
 }
 
 .push-footer-signup {
@@ -133,4 +128,18 @@ footer a {
 
 footer a:hover {
   color: teal;
+}
+
+.youtubeDiv {
+  margin-bottom: 15rem;
+  margin-left: 40rem;
+}
+
+iframe {
+  visibility: hidden;
+}
+
+.screenShareBtn {
+  display: flex;
+  flex-direction: row;
 }
