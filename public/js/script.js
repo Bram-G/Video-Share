@@ -8,17 +8,15 @@ const myPeer = new Peer(undefined, {
 const messageForm = document.getElementById('send-container')
 const messagContainer = document.getElementById('message-container')
 const messageInput = document.getElementById('message-input')
+const userName = messagContainer.getAttribute("data-name");
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
-// const messages = document.getElementById("messages");
-const userName = {};
 //Screen capture
 const videoElem = document.getElementById("screenDisplay");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
-
 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -45,8 +43,10 @@ appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 socket.on('chat-message', data =>{
   appendMessage(`${data.userName}: ${data.message}`)
 })
-socket.on('user-connected', userId =>{
-  appendMessage(`${userName} connected`)
+socket.on('user-connected', (userName) =>{
+  const msg = document.createElement("li");
+  msg.textContent = `${userName} has joined the room.`;
+  messagContainer.appendChild(msg);
 })
 
 socket.on('youtube-source-in', youtubeSource => {
@@ -158,11 +158,3 @@ youtubeID.addEventListener('click', (evt) => {
 
  })
 
-
-function fileShare(event) {
-  event.preventDefault();
-  var file = document.getElementById('myFile').value;
-  console.log(file);
-}
-
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
