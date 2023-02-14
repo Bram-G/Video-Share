@@ -3,10 +3,8 @@
 }
 
 footer {
-  /* margin-top: 7em; */
+  margin-top: -5.5em;
   height: 45px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }
 footer h5 {
@@ -35,7 +33,7 @@ video{
 
 }
 #chatBox{
-  overflow-y: scroll;
+  overflow: scroll;
   list-style-type: none;
   /* margin: 5px; */
   border:rgba(77, 165, 187, 0.168) solid 1.25px;
@@ -51,6 +49,8 @@ video{
   top: 64;
   height: 93%;
   max-height: 93%;
+  word-wrap: break-word;
+
 }
 #message-container {
   width: 100%;
@@ -59,18 +59,18 @@ video{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  word-wrap: break-word;
 }
 #message-container div {
   width: 100%;
-  background-color: beige;
+  background-color: lightblue;
   padding: 5px;
 }
 #message-container div:nth-child(2n){
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 #send-container {
-  position: fixed;
-  border: gray dotted 5px;
+  position: relative;
   width: 275px;
   height: 60px;
   display: flex;
@@ -94,11 +94,20 @@ video{
 }
 /* Pushes footer to the bottom of the viewport for the login handlebar */
 .push-footer-login {
-  margin-bottom: 13rem;
+  margin-bottom: 13.7rem;
+}
+
+.chatBtn {
+  margin-top: .8rem;
 }
 
 .push-footer-signup {
   margin-bottom: 14.3rem;
+}
+
+.push-footer-home {
+  margin-bottom: 9.3rem;
+  margin-top: -2.7rem;
 }
 
 #screenDisplay {
@@ -121,3 +130,24 @@ video{
   justify-content: space-evenly;
 }
 
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: teal;
+}
+
+.youtubeDiv {
+  margin-bottom: 15rem;
+  margin-left: 40rem;
+}
+
+iframe {
+  visibility: hidden;
+}
+
+.screenShareBtn {
+  display: flex;
+  flex-direction: row;
+}
