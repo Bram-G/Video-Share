@@ -19,7 +19,9 @@ const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
 var currentPeer;
-// gets mic and camera data
+let iframe = document.getElementById('iframeDisplay')
+hidden = document.getElementsByClassName("hidden")
+// gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -185,14 +187,12 @@ function stopCapture(evt) {
 
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
-youtubeID.addEventListener('click', (evt) => {
-  alert('button clicked')
+  youtubeID.addEventListener('click', (evt) => {
   let youtubeInput = document.getElementById('youtubeInput').value
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-
  })
 
