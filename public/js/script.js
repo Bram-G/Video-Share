@@ -18,17 +18,20 @@ const videoElem = document.getElementById("screenDisplay");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
-
-
+var currentPeer = null;
+// gets mic and camera data
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
+  // creates video box with stream data
   addVideoStream(myVideo, stream)
 
   myPeer.on('call', (call) => {
     call.answer(stream);
     const video = document.createElement('video');
+    currentPeer = call;
+
     call.on('stream', (userVideoStream) => {
       addVideoStream(video, userVideoStream)
     })
@@ -38,8 +41,37 @@ navigator.mediaDevices.getUserMedia({
     connectToNewUser(userId, stream)
 
   })
+  
+  startElem.addEventListener("click", (e) => {
+    logElem.innerHTML = "";
+      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
+        // addScreenStream(videoElem,stream)
+        
+          const screenStream = stream;
+          window.stream = stream;
 
-})
+          if (myPeer) {
+            console.log("Current Peer", currentPeer);
+            const videoElem = document.getElementById("screenDisplay");
+            addScreenStream(videoElem, stream);
+
+            let sender = currentPeer.peerConnection.getSenders().find(function (s) {
+                return s.track.kind == videoTrack.kind;
+            })
+        sender.replaceTrack(videoTrack)
+          // call.answer(stream);
+          // call.on("stream", function (stream) {
+          //       addScreenStream(videoElem, stream);
+        // });
+  
+      }})
+  
+      })
+    })
+  
+    
+
+
 
 appendMessage( `${userName}` + " Joined room " + ROOM_ID)
 // socket.emit('new-user', userName)
@@ -50,9 +82,9 @@ socket.on('chat-message', data =>{
 socket.on('user-connected', userId =>{
   appendMessage(`${userName} connected`)
 })
-socket.on('screen-share',myVideo,stream =>{
+// socket.on('screen-share',myVideo,stream =>{
   
-})
+// })
 
 function appendMessage(message){
   const messageElement = document.createElement('div')
@@ -128,32 +160,13 @@ const displayMediaOptions = {
   },
   audio: false
 };
-
-// Set event listeners for the start and stop buttons
-startElem.addEventListener("click", (evt) => {
-  startCapture();
-}, false);
-
 stopElem.addEventListener("click", (evt) => {
   stopCapture();
 }, false);
+// Set event listeners for the start and stop buttons
 
-function startCapture() {
-  logElem.innerHTML = "";
-    navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
-      addScreenStream(videoElem,stream)
-      myPeer.on('call', call =>{
-        call.answer(stream);
-        const videoElem = document.getElementById("screenDisplay");
-        call.on('stream', (userScreenShare) =>{
-          addVideoStream(videoElem,userScreenShare)
-        })
 
-      })
 
-    })
-
-  }
 
 
 function stopCapture(evt) {
