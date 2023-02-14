@@ -17,6 +17,8 @@ const videoElem = document.getElementById("screenDisplay");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
+const hidden = document.getElementsByClassName("hidden")
+let iframe = document.getElementById('iframeDisplay')
 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -144,17 +146,15 @@ function fileShare(event) {
   console.log(file);
 }
 
-document.querySelector('.fileShare').addEventListener('submit', fileShare)
+// document.querySelector('.fileShare').addEventListener('submit', fileShare)
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
-youtubeID.addEventListener('click', (evt) => {
-  alert('button clicked')
+  youtubeID.addEventListener('click', (evt) => {
   let youtubeInput = document.getElementById('youtubeInput').value
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
   let youtubeSource = urlArray.join("")
-  // iframe.setAttribute("src", youtubeSource)
+  iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-
  })
 
