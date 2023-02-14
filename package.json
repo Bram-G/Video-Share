@@ -31,18 +31,13 @@
     "express-session": "^1.17.3",
     "googleapis": "^105.0.0",
     "handlebars": "^4.7.7",
-<<<<<<< HEAD
-    "http": "^0.0.1-security",
-=======
     "multer": "^1.4.5-lts.1",
->>>>>>> e5a195df6f21f2aa94a83c4d7c537cc553d9a19b
     "mysql": "^2.18.1",
     "mysql2": "^3.1.2",
     "node": "^19.6.0",
     "peer": "^0.6.1",
     "peerjs": "^1.4.7",
     "sequelize": "^6.28.0",
-    "session": "^0.1.0",
     "socket.io": "^4.6.0",
     "uuid": "^9.0.0"
   }
