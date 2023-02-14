@@ -2,10 +2,14 @@
   font-family: "Lato", sans-serif;
 }
 
+
+
 footer {
   margin-top: -5.5em;
   height: 45px;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 footer h5 {
   text-align: center;
@@ -18,10 +22,11 @@ footer h5 {
 #video-grid {
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fill, 350px);
-    grid-auto-rows: 350px;
-    margin-top: 2%;
+    grid-template-columns: repeat(auto-fill, 28vh);
+    /* grid-auto-rows: 350px; */
+    margin-top: 7%;
     gap: 30px;
+    height: 28vh;
   }
 video{
     width: 100%;
@@ -33,7 +38,7 @@ video{
 
 }
 #chatBox{
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   /* margin: 5px; */
   border:rgba(77, 165, 187, 0.168) solid 1.25px;
@@ -44,7 +49,7 @@ video{
   flex-wrap: wrap;
   align-items: flex-end;
   align-content: space-between;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 64;
   height: 93%;
@@ -124,6 +129,11 @@ justify-content: center;
   margin-bottom: 2.5rem;
 }
 
+nav {
+  position: fixed;
+  z-index: 1;
+}
+
 .sideNav{
   display: flex;
   justify-content: space-evenly;
@@ -148,5 +158,15 @@ iframe {
 
 .screenShareBtn {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
+  position: fixed;
+  z-index: 1;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
+
+.container {
+  height: 75vh;
+}
+
