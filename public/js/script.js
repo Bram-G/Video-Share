@@ -54,6 +54,12 @@ socket.on('screen-share',myVideo,stream =>{
   
 })
 
+socket.on('youtube-source-in', youtubeSource => {
+  console.log(youtubeSource)
+  let iframe = document.getElementById('iframeDisplay')
+  iframe.setAttribute("src", youtubeSource)
+})
+
 function appendMessage(message){
   const messageElement = document.createElement('div')
   messageElement.innerText = message
@@ -162,3 +168,32 @@ function stopCapture(evt) {
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
+
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
+//Youtube
+let youtubeID = document.getElementById('youtubeForm')
+youtubeID.addEventListener('click', (evt) => {
+  alert('button clicked')
+  let youtubeInput = document.getElementById('youtubeInput').value
+  let urlArray = youtubeInput.split("watch?v=")
+  urlArray.splice(1, 0, "embed/")
+  let youtubeSource = urlArray.join("")
+  // iframe.setAttribute("src", youtubeSource)
+  socket.emit('youtube-socket', youtubeSource)
+
+ })
+
+
+function fileShare(event) {
+  event.preventDefault();
+  var file = document.getElementById('myFile').value;
+  console.log(file);
+}
+
+document.querySelector('.fileShare').addEventListener('submit', fileShare)
