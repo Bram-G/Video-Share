@@ -17,7 +17,7 @@
 </div>
 
 {{!-- Screen capture --}}
-<div id="screenSharing">
+<div id="screenDisplayGrid">
 
     <video id="screenDisplay" autoplay></video>
     <br />
@@ -45,7 +45,7 @@
 </div>
 </div>
 </div>
-
+</div>
 {{!-- Chat box --}}
 <div id="chatBox">
     <ul data-name="{{name}}" id="message-container"></ul>
@@ -65,10 +65,4 @@
         M.Sidenav.init(side)
       })
     </script>
-    <script>
-        const youtubeForm = document.getElementById('youtubeForm');
-        const iframe = document.querySelector("iframe");
-        youtubeForm.addEventListener("click", function() {
-            iframe.style.visibility = "visible";
-        })
-    </script>
+  
