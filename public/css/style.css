@@ -143,3 +143,8 @@ footer a:hover {
 iframe {
   visibility: hidden;
 }
+
+.screenShareBtn {
+  display: flex;
+  flex-direction: row;
+}
