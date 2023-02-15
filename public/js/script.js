@@ -22,6 +22,8 @@ const stopElem = document.getElementById("stop");
 let myVideoStream;
 var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
+const muteAudio = document.getElementById('muteAudio')
+
 hidden = document.getElementsByClassName("hidden")
 // gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
@@ -31,13 +33,13 @@ navigator.mediaDevices.getUserMedia({
   myVideoStream = stream;
   // creates video box with stream data
   addVideoStream(myVideo, stream)
-  
+
   myPeer.on('call', (call) => {
     call.answer(stream);
     const video = document.createElement('video');
     currentPeer = call;
     console.log(currentPeer)
-    
+
     call.on('stream', (userVideoStream) => {
       addVideoStream(video, userVideoStream)
       
@@ -46,7 +48,7 @@ navigator.mediaDevices.getUserMedia({
   socket.on('user-connected', userId => {
     console.log("user connected" + userId)
     connectToNewUser(userId, stream)
-    
+
   })
   
   startElem.addEventListener("click", (e) => {
@@ -69,8 +71,8 @@ navigator.mediaDevices.getUserMedia({
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
-        
-        
+
+  
       }})
   
       })
@@ -97,9 +99,9 @@ socket.on('youtube-source-in', youtubeSource => {
   iframe.style.width="70%"
   iframe.style.height="70%"
 })
-socket.on('screenshare-source-in', videoElemGrid => {
-  videoElemGrid
-})
+// socket.on('screenshare-source-in', videoElemGrid => {
+//   videoElemGrid
+// })
 
 function appendMessage(message){
   const messageElement = document.createElement('div')
@@ -173,14 +175,14 @@ stopElem.addEventListener("click", (evt) => {
 
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
-  
+
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
 
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
-youtubeID.addEventListener('click', (evt) => {
+  youtubeID.addEventListener('click', (evt) => {
   let youtubeInput = document.getElementById('youtubeInput').value
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
@@ -189,14 +191,19 @@ youtubeID.addEventListener('click', (evt) => {
   socket.emit('youtube-socket', youtubeSource)
   iframe.style.width="70%"
   iframe.style.height="70%"
-})
-const muteAudio = document.getElementById('muteAudio')
+ })
+
+ //Mute 
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
     myVideoStream.getAudioTracks()[0].enabled = false;
+    muteAudio.classList.remove("orange")
+    muteAudio.classList.add("red")
   } else {
     myVideoStream.getAudioTracks()[0].enabled = true;
+    muteAudio.classList.remove("red")
+    muteAudio.classList.add("orange")
   }
 };
 muteAudio.addEventListener('click',(e)=>{
