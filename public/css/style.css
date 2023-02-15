@@ -6,7 +6,7 @@
 
 footer {
   margin-top: -5.5em;
-  height: 45px;
+  height: 3.5%;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -37,6 +37,8 @@ video{
     transform: rotateY(180deg);
 
 }
+
+
 #chatBox{
   overflow-y: scroll;
   list-style-type: none;
@@ -44,7 +46,6 @@ video{
   border:rgba(77, 165, 187, 0.168) solid 1.25px;
   border-style:inset ;
   width: 275px;
-  /* height: 400px; */
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -52,10 +53,18 @@ video{
   position: fixed;
   right: 0;
   top: 64;
-  height: 91%;
+  height: 90.5%;
   max-height: 91%;
   word-wrap: break-word;
 
+}
+
+#chatBox::-webkit-scrollbar {
+  display:none;
+
+}
+.button{
+  margin: 10px;
 }
 #message-container {
   width: 100%;
@@ -83,9 +92,11 @@ video{
 }
 #screenDisplayGrid{
 display:flex;
-width: 2%;
-height: 2%;
+width: 1px;
+height: 1px;
 justify-content: center;
+margin-left: 8%;
+
 /* border: blue solid 5px; */
   
 }
@@ -94,24 +105,19 @@ justify-content: center;
 }
 
 .home-cards {
-    margin-top: 7em;
-}
-/* Pushes footer to the bottom of the viewport for the login handlebar */
-.push-footer-login {
-  margin-bottom: 13.7rem;
+    margin-top: 6em;
 }
 
 .chatBtn {
   margin-top: .8rem;
 }
 
-.push-footer-signup {
-  margin-bottom: 14.3rem;
+.home-page{
+  margin-top: 2.5rem;
 }
 
-.push-footer-home {
-  margin-bottom: 9.3rem;
-  margin-top: -2.7rem;
+.room-page {
+  margin-top: 2.5rem;
 }
 
 #screenDisplay {
@@ -131,7 +137,7 @@ justify-content: center;
 
 nav {
   position: fixed;
-  z-index: 1;
+  margin-top: -2.5rem;
 }
 
 .sideNav{
@@ -143,17 +149,28 @@ footer a {
   color: white;
 }
 
+
 footer a:hover {
   color: teal;
 }
 
 .youtubeDiv {
-  margin-top: 10rem;
-  margin-left: 35rem;
+  margin-top: 20%;
+  /* margin-left: 10%; */
 }
+
 
 iframe {
   border: 0px;
+  margin-left: 10%;
+}
+
+.login-page{
+  padding-top: 6rem;
+}
+
+.signup-page {
+  padding-top: 6rem;
 }
 
 .screenShareBtn {
@@ -162,7 +179,7 @@ iframe {
   flex-direction: row;
   position: fixed;
   z-index: 1;
-  margin-top: 1rem;
+  margin-top: -1.5rem;
   margin-left: 1rem;
 }
 .tooltip {
@@ -185,4 +202,13 @@ iframe {
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+#youtubeForm {
+  position: absolute;
+  margin-left: 2rem;
+}
+
+.youtubeAlign {
+  margin-bottom: 3%;
 }
