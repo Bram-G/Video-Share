@@ -44,13 +44,16 @@ video{
   flex-wrap: wrap;
   align-items: flex-end;
   align-content: space-between;
-  position: absolute;
+  position: sticky;
   right: 0;
-  top: 64;
+  top: 0;
   height: 93%;
   max-height: 93%;
   word-wrap: break-word;
 
+}
+.button{
+  margin: 10px;
 }
 #message-container {
   width: 100%;

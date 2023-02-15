@@ -20,7 +20,9 @@ router.get("/", (req,res)=> {
 })
 
 router.get("/:room", (req,res)=> {
+    
     res.render('room',{ roomId: req.params.room})
+    
 })
 
 
