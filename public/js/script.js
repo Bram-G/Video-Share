@@ -50,10 +50,11 @@ navigator.mediaDevices.getUserMedia({
   startElem.addEventListener("click", (e) => {
     logElem.innerHTML = "";
       navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
-        
-        const screenStream = stream;
-        window.stream = stream;
-        // let videoTrack =  videoElem.getVideoTracks()[0]
+        // addScreenStream(videoElem,stream)
+          videoElemGrid.style.width="80%"
+          videoElemGrid.style.height="80%"
+          const screenStream = stream;
+          window.stream = stream;
           let videoTrack = screenStream.getVideoTracks()[0]
         console.log(videoTrack)
 
@@ -91,6 +92,8 @@ socket.on('youtube-source-in', youtubeSource => {
   console.log(youtubeSource)
   let iframe = document.getElementById('iframeDisplay')
   iframe.setAttribute("src", youtubeSource)
+  iframe.style.width="50%"
+  iframe.style.height="40%"
 })
 
 function appendMessage(message){
@@ -156,6 +159,8 @@ const displayMediaOptions = {
 };
 stopElem.addEventListener("click", (evt) => {
   stopCapture();
+  videoElemGrid.style.width="2%"
+  videoElemGrid.style.height="2%"
 }, false);
 // Set event listeners for the start and stop buttons
 
@@ -175,5 +180,7 @@ let youtubeID = document.getElementById('youtubeForm')
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
+  iframe.style.width="50%"
+  iframe.style.height="40%"
  })
 

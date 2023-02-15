@@ -2,10 +2,14 @@
   font-family: "Lato", sans-serif;
 }
 
+
+
 footer {
   margin-top: -5.5em;
   height: 45px;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 footer h5 {
   text-align: center;
@@ -18,10 +22,12 @@ footer h5 {
 #video-grid {
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fill, 350px);
-    grid-auto-rows: 350px;
-    margin-top: 2%;
+    grid-template-columns: repeat(auto-fill, 30vh);
+    grid-auto-rows: 30vh;
+    margin-top: 7%;
     gap: 30px;
+    height: 30vh;
+    margin-bottom: 20rem;
   }
 video{
     width: 100%;
@@ -33,7 +39,7 @@ video{
 
 }
 #chatBox{
-  overflow: scroll;
+  overflow-y: scroll;
   list-style-type: none;
   /* margin: 5px; */
   border:rgba(77, 165, 187, 0.168) solid 1.25px;
@@ -44,11 +50,11 @@ video{
   flex-wrap: wrap;
   align-items: flex-end;
   align-content: space-between;
-  position: sticky;
+  position: fixed;
   right: 0;
-  top: 0;
-  height: 93%;
-  max-height: 93%;
+  top: 64;
+  height: 91%;
+  max-height: 91%;
   word-wrap: break-word;
 
 }
@@ -81,8 +87,8 @@ video{
 }
 #screenDisplayGrid{
 display:flex;
-width: 80%;
-height: 80%;
+width: 2%;
+height: 2%;
 justify-content: center;
 /* border: blue solid 5px; */
   
@@ -127,6 +133,11 @@ justify-content: center;
   margin-bottom: 2.5rem;
 }
 
+nav {
+  position: fixed;
+  z-index: 1;
+}
+
 .sideNav{
   display: flex;
   justify-content: space-evenly;
@@ -151,5 +162,31 @@ iframe {
 
 .screenShareBtn {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
+  position: fixed;
+  z-index: 1;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 2;
+  top:100%;
+  left:50%;
+  margin-left: -25px; 
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

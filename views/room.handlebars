@@ -1,9 +1,19 @@
+
+
 <div class="screenshareBtn">
-<div class="col s4 button">
-    <a id="start" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">screen_share</i></a>
+<div class="col s4 tooltip">
+    <a id="start" class="btn-floating btn-small waves-effect waves-light"><i class="material-icons">screen_share</i></a>
+    <span class="tooltiptext">Screen Share</span>
 </div>
-<div class="col s4 button">
-    <a id="stop" class="btn-floating btn-large waves-effect waves-light"><i  class="material-icons">stop_screen_share</i></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="col s4 tooltip">
+    <a id="stop" class="btn-floating btn-small waves-effect waves-light red"><i  class="material-icons">stop_screen_share</i></a>
+    <span class="tooltiptext">Stop Share</span>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="col s4 tooltip">
+    <a id="stop" class="btn-floating btn-small waves-effect waves-light orange"><i  class="material-icons">mic</i></a>
+    <span class="tooltiptext">Mute/Unmute</span>
 </div>
 </div>
 
@@ -30,13 +40,13 @@
 
 {{!-- Embedded youtube --}}
 <div class="youtubeDiv">
-<iframe id = "iframeDisplay" width="50%" height="40%" src="">
+<iframe id = "iframeDisplay" width="5%" height="4%" src="">
 </iframe>
 
 <div class="row">
 <div class="input-field col s6">
     <input value="" id="youtubeInput" type="text" class="validate">
-    <label class="active" for="first_name2">Enter YouTube Link</label>
+    <label class="active">Enter YouTube Link</label>
     <div class="row">
     <button class="btn waves-effect waves-light" id="youtubeForm" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
