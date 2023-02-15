@@ -19,6 +19,7 @@ const videoElemGrid = document.getElementById("screenDisplayGrid");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
+let myVideoStream;
 var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
 hidden = document.getElementsByClassName("hidden")
@@ -27,15 +28,16 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
+  myVideoStream = stream;
   // creates video box with stream data
   addVideoStream(myVideo, stream)
-
+  
   myPeer.on('call', (call) => {
     call.answer(stream);
     const video = document.createElement('video');
     currentPeer = call;
     console.log(currentPeer)
-
+    
     call.on('stream', (userVideoStream) => {
       addVideoStream(video, userVideoStream)
       
@@ -44,7 +46,7 @@ navigator.mediaDevices.getUserMedia({
   socket.on('user-connected', userId => {
     console.log("user connected" + userId)
     connectToNewUser(userId, stream)
-
+    
   })
   
   startElem.addEventListener("click", (e) => {
@@ -67,8 +69,8 @@ navigator.mediaDevices.getUserMedia({
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
-
-  
+        
+        
       }})
   
       })
@@ -171,14 +173,14 @@ stopElem.addEventListener("click", (evt) => {
 
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
-
+  
   tracks.forEach((track) => track.stop());
   videoElem.srcObject = null;
 }
 
 //Youtube
 let youtubeID = document.getElementById('youtubeForm')
-  youtubeID.addEventListener('click', (evt) => {
+youtubeID.addEventListener('click', (evt) => {
   let youtubeInput = document.getElementById('youtubeInput').value
   let urlArray = youtubeInput.split("watch?v=")
   urlArray.splice(1, 0, "embed/")
@@ -187,5 +189,17 @@ let youtubeID = document.getElementById('youtubeForm')
   socket.emit('youtube-socket', youtubeSource)
   iframe.style.width="70%"
   iframe.style.height="70%"
- })
+})
+const muteAudio = document.getElementById('muteAudio')
+const muteUnmute = () => {
+  const enabled = myVideoStream.getAudioTracks()[0].enabled;
+  if (enabled) {
+    myVideoStream.getAudioTracks()[0].enabled = false;
+  } else {
+    myVideoStream.getAudioTracks()[0].enabled = true;
+  }
+};
+muteAudio.addEventListener('click',(e)=>{
+  muteUnmute();
+})
 
