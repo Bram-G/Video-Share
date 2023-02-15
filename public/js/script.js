@@ -75,7 +75,7 @@ navigator.mediaDevices.getUserMedia({
   
       })
     })
-  
+  u
     
 
 
@@ -94,8 +94,8 @@ socket.on('youtube-source-in', youtubeSource => {
   console.log(youtubeSource)
   let iframe = document.getElementById('iframeDisplay')
   iframe.setAttribute("src", youtubeSource)
-  iframe.style.width="50%"
-  iframe.style.height="40%"
+  iframe.style.width="840px"
+  iframe.style.height="630px"
 })
 
 function appendMessage(message){
@@ -199,7 +199,7 @@ let youtubeID = document.getElementById('youtubeForm')
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-  iframe.style.width="50%"
-  iframe.style.height="40%"
+  iframe.style.width="840px"
+  iframe.style.height="630px"
  })
 
