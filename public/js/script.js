@@ -55,7 +55,7 @@ navigator.mediaDevices.getUserMedia({
           const screenStream = stream;
           window.stream = stream;
           let videoTrack = screenStream.getVideoTracks()[0]
-          // console.log(screenStream.getVideoTracks()[0])
+
 
           if (myPeer) {
             console.log("Current Peer", currentPeer);
@@ -66,10 +66,7 @@ navigator.mediaDevices.getUserMedia({
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
-          // call.answer(stream);
-          // call.on("stream", function (stream) {
-          //       addScreenStream(videoElem, stream);
-        // });
+
   
       }})
   
@@ -142,19 +139,6 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call
 };
 
-const connectToNewUserScreen = (userId, stream) => {
-  const call = myPeer.call(userId, stream)
-  const videoElem = document.getElementById("screenDisplay")
-  call.on('stream', userVideoScreen => {
-    addVideoStream(videoElem, userVideoScreen)
-  })
-  call.on('close', () => {
-    videoElem.remove()
-  })
-
-  // peers[userId] = call
-};
-
 
 const addScreenStream = (screen, stream) => {
   videoElem.srcObject = stream
@@ -178,10 +162,6 @@ stopElem.addEventListener("click", (evt) => {
   videoElemGrid.style.height="2%"
 }, false);
 // Set event listeners for the start and stop buttons
-
-
-
-
 
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
