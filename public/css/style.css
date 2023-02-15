@@ -94,7 +94,7 @@ justify-content: center;
 }
 
 .home-cards {
-    margin-top: 7em;
+    margin-top: 6em;
 }
 
 .chatBtn {
@@ -102,6 +102,10 @@ justify-content: center;
 }
 
 .home-page{
+  margin-top: 2.5rem;
+}
+
+.room-page {
   margin-top: 2.5rem;
 }
 
@@ -161,7 +165,7 @@ iframe {
   flex-direction: row;
   position: fixed;
   z-index: 1;
-  margin-top: 1rem;
+  margin-top: -1.5rem;
   margin-left: 1rem;
 }
 .tooltip {
