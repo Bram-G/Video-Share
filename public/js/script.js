@@ -8,7 +8,8 @@ const myPeer = new Peer(undefined, {
 const messageForm = document.getElementById('send-container')
 const messagContainer = document.getElementById('message-container')
 const messageInput = document.getElementById('message-input')
-const userName = messagContainer.getAttribute("data-name");
+const userName = messagContainer.getAttribute("class");
+console.log(userName)
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -55,7 +56,7 @@ navigator.mediaDevices.getUserMedia({
           const screenStream = stream;
           window.stream = stream;
           let videoTrack = screenStream.getVideoTracks()[0]
-
+        console.log(videoTrack)
 
           if (myPeer) {
             console.log("Current Peer", currentPeer);

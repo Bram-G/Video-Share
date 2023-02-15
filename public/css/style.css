@@ -58,6 +58,14 @@ video{
   word-wrap: break-word;
 
 }
+
+#chatBox::-webkit-scrollbar {
+  display:none;
+
+}
+.button{
+  margin: 10px;
+}
 #message-container {
   width: 100%;
   margin: 0;
