@@ -180,7 +180,7 @@ let youtubeID = document.getElementById('youtubeForm')
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-  iframe.style.width="840px"
-  iframe.style.height="630px"
+  iframe.style.width="70%"
+  iframe.style.height="70%"
  })
 

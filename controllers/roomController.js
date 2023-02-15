@@ -20,9 +20,11 @@ router.get("/", (req,res)=> {
 })
 
 router.get("/:room", (req,res)=> {
-    
+    if (!req.session.user) {
+        return res.redirect('/login');
+    } else {
     res.render('room',{ roomId: req.params.room})
-    
+}
 })
 
 

@@ -13,7 +13,13 @@ router.get('/login', (req, res) => {
     if (!req.session.user) {
         return res.render('login');
     } else {
-        return res.render('home');
+        req.session.destroy();
+        res.send(`
+        <script>
+          alert("You have logged out!");
+          window.location.href = "/";
+        </script>
+      `)
     };
 
 });

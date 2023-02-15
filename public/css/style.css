@@ -6,7 +6,7 @@
 
 footer {
   margin-top: -5.5em;
-  height: 45px;
+  height: 5%;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -52,9 +52,14 @@ video{
   position: fixed;
   right: 0;
   top: 64;
-  height: 91%;
+  height: 90.5%;
   max-height: 91%;
   word-wrap: break-word;
+
+}
+
+#chatBox::-webkit-scrollbar {
+  display:none;
 
 }
 .button{
@@ -151,8 +156,8 @@ footer a:hover {
 }
 
 .youtubeDiv {
-  margin-top: 10rem;
-  margin-left: 35rem;
+  margin-top: 5%;
+  margin-left: 10%;
 }
 
 iframe {

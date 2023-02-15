@@ -14,7 +14,12 @@ router.get("/",(req,res)=>{
 
  router.get("/logout", (req, res) => {
    req.session.destroy();
-   res.redirect("/");
+   res.send(`
+   <script>
+     alert("You have logged out!");
+     window.location.href = "/";
+   </script>
+ `)
  })
  
  router.get('/login', (req, res) => {
@@ -22,7 +27,12 @@ router.get("/",(req,res)=>{
         return res.render('login');
     } else {
         req.session.destroy();
-        res.redirect("/");
+        res.send(`
+        <script>
+          alert("You have logged out!");
+          window.location.href = "/";
+        </script>
+      `)
     };
  
  });
@@ -36,6 +46,7 @@ router.get("/",(req,res)=>{
      res.status(500).json(err)
     })
  })
+//  create an account
  router.post("/",(req,res)=>{
    console.log(req.body);
   User.create({
@@ -54,6 +65,7 @@ router.get("/",(req,res)=>{
    res.status(500).json({msg:"oh noes!",err})
   })
 })
+// login to account
 router.post("/login", (req, res) => {
    User.findOne({
       where:{
@@ -76,7 +88,7 @@ router.post("/login", (req, res) => {
       }
    }).catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(500).json({msge:"Incorrect email or password."});
    })
 })
 
