@@ -55,7 +55,7 @@ navigator.mediaDevices.getUserMedia({
           const screenStream = stream;
           window.stream = stream;
           let videoTrack = screenStream.getVideoTracks()[0]
-          // console.log(screenStream.getVideoTracks()[0])
+
 
           if (myPeer) {
             console.log("Current Peer", currentPeer);
@@ -66,16 +66,13 @@ navigator.mediaDevices.getUserMedia({
                 return s.track.kind == videoTrack.kind;
             })
         sender.replaceTrack(videoTrack)
-          // call.answer(stream);
-          // call.on("stream", function (stream) {
-          //       addScreenStream(videoElem, stream);
-        // });
+
   
       }})
   
       })
     })
-  
+  u
     
 
 
@@ -94,8 +91,8 @@ socket.on('youtube-source-in', youtubeSource => {
   console.log(youtubeSource)
   let iframe = document.getElementById('iframeDisplay')
   iframe.setAttribute("src", youtubeSource)
-  iframe.style.width="50%"
-  iframe.style.height="40%"
+  iframe.style.width="840px"
+  iframe.style.height="630px"
 })
 
 function appendMessage(message){
@@ -142,19 +139,6 @@ const connectToNewUser = (userId, stream) => {
   peers[userId] = call
 };
 
-const connectToNewUserScreen = (userId, stream) => {
-  const call = myPeer.call(userId, stream)
-  const videoElem = document.getElementById("screenDisplay")
-  call.on('stream', userVideoScreen => {
-    addVideoStream(videoElem, userVideoScreen)
-  })
-  call.on('close', () => {
-    videoElem.remove()
-  })
-
-  // peers[userId] = call
-};
-
 
 const addScreenStream = (screen, stream) => {
   videoElem.srcObject = stream
@@ -179,10 +163,6 @@ stopElem.addEventListener("click", (evt) => {
 }, false);
 // Set event listeners for the start and stop buttons
 
-
-
-
-
 function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
 
@@ -199,7 +179,7 @@ let youtubeID = document.getElementById('youtubeForm')
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-  iframe.style.width="50%"
-  iframe.style.height="40%"
+  iframe.style.width="840px"
+  iframe.style.height="630px"
  })
 
