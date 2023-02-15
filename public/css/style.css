@@ -27,7 +27,7 @@ footer h5 {
     margin-top: 7%;
     gap: 30px;
     height: 30vh;
-    margin-bottom: 42rem;
+    margin-bottom: 20rem;
   }
 video{
     width: 100%;
@@ -53,8 +53,8 @@ video{
   position: fixed;
   right: 0;
   top: 64;
-  height: 93%;
-  max-height: 93%;
+  height: 91%;
+  max-height: 91%;
   word-wrap: break-word;
 
 }

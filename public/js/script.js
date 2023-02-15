@@ -104,33 +104,13 @@ function appendMessage(message){
   messagContainer.append(messageElement)
 }
 
-//when user clicks send then it grabs the value of input and emits it
-messageForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (messageInput.value) {
-    //Sending the message AND the name of the User to the server
-    socket.emit("chat message", { msg: messageInput.value, name: userName });
-    messageInput.value = "";
-  }
-});
-
-socket.on("chat message", function (msg) {
-  //sets new date object
-  const date = new Date();
-  const pm = date.getHours() >= 12;
-  let hour12 = date.getHours() % 12;
-  if (!hour12) hour12 += 12;
-  //if minute is less than 10 it will add 0 in front, other wise it looks weird ex. 2:1 pm now looks like 2:01pm
-  const minute = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-  //creates document that will hold user message
-  const item = document.createElement("li");
-  //setting text content to the name and msg using object key pairs
-  item.textContent = `${msg.name} ${hour12}:${minute} ${pm ? "pm" : "am"}: ${
-    msg.msg
-  }`;
-  messages.appendChild(item);
-  cardBody.scrollTop = cardBody.scrollHeight;
-});
+messageForm.addEventListener('submit', e=>{
+  e.preventDefault()
+  const message = messageInput.value
+  appendMessage(`You: ${message}`)
+  socket.emit('send-chat-message', message)
+  messageInput.value = ""
+})
 
 socket.on('user-disconnected', (userId) => {
   console.log("User Disconnected " +userId)
