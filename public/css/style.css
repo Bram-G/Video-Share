@@ -27,6 +27,10 @@ footer h5 {
     margin-top: 7%;
     gap: 30px;
     height: 30vh;
+<<<<<<< HEAD
+=======
+    margin-bottom: 42rem;
+>>>>>>> 063c048d555b54b40cb65a15c02eebe304e0b826
   }
 video{
     width: 100%;
@@ -83,8 +87,8 @@ video{
 }
 #screenDisplayGrid{
 display:flex;
-width: 80%;
-height: 80%;
+width: 2%;
+height: 2%;
 justify-content: center;
 /* border: blue solid 5px; */
   
@@ -165,6 +169,7 @@ iframe {
   margin-top: 1rem;
   margin-left: 1rem;
 }
+<<<<<<< HEAD
 .tooltip {
   position: relative;
   display: inline-block;
@@ -186,3 +191,5 @@ iframe {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+=======
+>>>>>>> 063c048d555b54b40cb65a15c02eebe304e0b826
