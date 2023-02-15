@@ -50,8 +50,8 @@ navigator.mediaDevices.getUserMedia({
     logElem.innerHTML = "";
       navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream =>{
         // addScreenStream(videoElem,stream)
-          videoElemGrid.style.width="80%"
-          videoElemGrid.style.height="80%"
+          videoElemGrid.style.width="70%"
+          videoElemGrid.style.height="70%"
           const screenStream = stream;
           window.stream = stream;
           let videoTrack = screenStream.getVideoTracks()[0]
@@ -91,8 +91,8 @@ socket.on('youtube-source-in', youtubeSource => {
   console.log(youtubeSource)
   let iframe = document.getElementById('iframeDisplay')
   iframe.setAttribute("src", youtubeSource)
-  iframe.style.width="840px"
-  iframe.style.height="630px"
+  iframe.style.width="70%"
+  iframe.style.height="70%"
 })
 
 function appendMessage(message){
@@ -157,9 +157,11 @@ const displayMediaOptions = {
   audio: false
 };
 stopElem.addEventListener("click", (evt) => {
+  iframe.style.width = "1px"
+  iframe.style.height = "1px"
   stopCapture();
-  videoElemGrid.style.width="2%"
-  videoElemGrid.style.height="2%"
+  videoElemGrid.style.width="1px"
+  videoElemGrid.style.height="1px"
 }, false);
 // Set event listeners for the start and stop buttons
 
@@ -179,7 +181,7 @@ let youtubeID = document.getElementById('youtubeForm')
   let youtubeSource = urlArray.join("")
   iframe.setAttribute("src", youtubeSource)
   socket.emit('youtube-socket', youtubeSource)
-  iframe.style.width="840px"
-  iframe.style.height="630px"
+  iframe.style.width="70%"
+  iframe.style.height="70%"
  })
 
