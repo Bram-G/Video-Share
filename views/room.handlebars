@@ -12,8 +12,9 @@
 </div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div class="col s4 tooltip">
-    <a id="stop" class="btn-floating btn-small waves-effect waves-light orange"><i  class="material-icons">mic</i></a>
+    <a id="muteAudio" class="btn-floating btn-small waves-effect waves-light orange"><i  class="material-icons">mic</i></a>
     <span class="tooltiptext">Mute/Unmute</span>
+
 </div>
 </div>
 
@@ -55,7 +56,7 @@
 {{!-- </div> --}}
 {{!-- Chat box --}}
 <div id="chatBox">
-    <ul data-name="{{name}}" id="message-container"></ul>
+    <ul class="{{name}}" id="message-container"></ul>
     <form id= "send-container">
       <input type="text" autocomplete="off" id="message-input">
         <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
