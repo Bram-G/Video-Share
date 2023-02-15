@@ -41,7 +41,8 @@ io.on('connection',(socket) => {
         console.log('inside youtube socket')
         console.log(youtubeSource)
         socket.broadcast.emit('youtube-source-in', youtubeSource)
-    } )
+    })
+    
 })
 
 app.use(express.urlencoded({ extended: true }));
