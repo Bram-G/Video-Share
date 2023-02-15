@@ -27,7 +27,6 @@ footer h5 {
     margin-top: 7%;
     gap: 30px;
     height: 30vh;
-    margin-bottom: 20rem;
   }
 video{
     width: 100%;
@@ -152,8 +151,8 @@ footer a:hover {
 }
 
 .youtubeDiv {
-  margin-bottom: 15rem;
-  margin-left: 40rem;
+  margin-top: 10rem;
+  margin-left: 35rem;
 }
 
 iframe {
