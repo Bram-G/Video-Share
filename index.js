@@ -9,7 +9,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const allRoutes = require("./controllers");
 const {v4:uuidV4} = require('uuid');
-var bodyParser = require('body-parser')
+
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -48,8 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const sess = {
-    // secret: process.env.SESSION_SECRET,
-    secret: "secret",
+    secret: process.env.SESSION_SECRET,
     cookie: {
         maxAge: 1000 * 60 * 60 * 2,
     },
