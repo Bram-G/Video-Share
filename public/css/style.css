@@ -94,24 +94,19 @@ justify-content: center;
 }
 
 .home-cards {
-    margin-top: 7em;
-}
-/* Pushes footer to the bottom of the viewport for the login handlebar */
-.push-footer-login {
-  margin-bottom: 13.7rem;
+    margin-top: 6em;
 }
 
 .chatBtn {
   margin-top: .8rem;
 }
 
-.push-footer-signup {
-  margin-bottom: 14.3rem;
+.home-page{
+  margin-top: 2.5rem;
 }
 
-.push-footer-home {
-  margin-bottom: 9.3rem;
-  margin-top: -2.7rem;
+.room-page {
+  margin-top: 2.5rem;
 }
 
 #screenDisplay {
@@ -131,7 +126,7 @@ justify-content: center;
 
 nav {
   position: fixed;
-  z-index: 1;
+  margin-top: -2.5rem;
 }
 
 .sideNav{
@@ -156,13 +151,21 @@ iframe {
   border: 0px;
 }
 
+.login-page{
+  padding-top: 6rem;
+}
+
+.signup-page {
+  padding-top: 6rem;
+}
+
 .screenShareBtn {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   position: fixed;
   z-index: 1;
-  margin-top: 1rem;
+  margin-top: -1.5rem;
   margin-left: 1rem;
 }
 .tooltip {
