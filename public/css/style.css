@@ -22,11 +22,12 @@ footer h5 {
 #video-grid {
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: repeat(auto-fill, 28vh);
-    /* grid-auto-rows: 350px; */
+    grid-template-columns: repeat(auto-fill, 30vh);
+    grid-auto-rows: 30vh;
     margin-top: 7%;
     gap: 30px;
-    height: 28vh;
+    height: 30vh;
+    margin-bottom: 42rem;
   }
 video{
     width: 100%;
@@ -83,8 +84,8 @@ video{
 }
 #screenDisplayGrid{
 display:flex;
-width: 80%;
-height: 80%;
+width: 2%;
+height: 2%;
 justify-content: center;
 /* border: blue solid 5px; */
   
@@ -165,8 +166,3 @@ iframe {
   margin-top: 1rem;
   margin-left: 1rem;
 }
-
-.container {
-  height: 75vh;
-}
-
