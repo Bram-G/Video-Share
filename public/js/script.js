@@ -72,7 +72,7 @@ navigator.mediaDevices.getUserMedia({
   
       })
     })
-  u
+  
     
 
 
@@ -93,6 +93,9 @@ socket.on('youtube-source-in', youtubeSource => {
   iframe.setAttribute("src", youtubeSource)
   iframe.style.width="70%"
   iframe.style.height="70%"
+})
+socket.on('screenshare-source-in', videoElemGrid => {
+  videoElemGrid
 })
 
 function appendMessage(message){
