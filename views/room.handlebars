@@ -41,25 +41,22 @@
 
 {{!-- Embedded youtube --}}
 <div class="youtubeDiv">
-<iframe id = "iframeDisplay" width="5%" height="4%" src="">
+<iframe allowfullscreen id = "iframeDisplay" width="1px" height="1px" src="">
 </iframe>
 
-<div class="row">
-<div class="input-field col s6">
-    <input value="" id="youtubeInput" type="text" class="validate">
-    <label class="active">Enter YouTube Link</label>
-    <div class="row">
-    <button class="btn waves-effect waves-light" id="youtubeForm" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
-    </button>
+<div class="row youtubeAlign">
+    <div class="input-field col s3">
+        <input value="" id="youtubeInput" autocomplete="off" type="text" class="validate">
+        <label class="active">Enter YouTube Link</label>
+            <button class="input-field col s3 btn waves-effect waves-light" id="youtubeForm" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+    </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+
+{{!-- </div> --}}
 {{!-- Chat box --}}
 <div id="chatBox">
-    <ul data-name="{{name}}" id="message-container"></ul>
+    <ul class="{{name}}" id="message-container"></ul>
     <form id= "send-container">
       <input type="text" autocomplete="off" id="message-input">
         <button class="waves-effect waves-light btn-small chatBtn" type="submit" id="send-button"><i class ="material-icons right replyIcon">reply</i></button>
