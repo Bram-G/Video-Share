@@ -194,6 +194,8 @@ const displayMediaOptions = {
 };
 stopElem.addEventListener("click", (evt) => {
   stopCapture();
+  videoElemGrid.style.width="2%"
+  videoElemGrid.style.height="2%"
 }, false);
 // Set event listeners for the start and stop buttons
 
