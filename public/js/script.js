@@ -19,14 +19,18 @@ const videoElemGrid = document.getElementById("screenDisplayGrid");
 const logElem = document.getElementById("log");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
+let myVideoStream;
 var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
+const muteAudio = document.getElementById('muteAudio')
+
 hidden = document.getElementsByClassName("hidden")
 // gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
+  myVideoStream = stream;
   // creates video box with stream data
   addVideoStream(myVideo, stream)
 
@@ -95,9 +99,9 @@ socket.on('youtube-source-in', youtubeSource => {
   iframe.style.width="70%"
   iframe.style.height="70%"
 })
-socket.on('screenshare-source-in', videoElemGrid => {
-  videoElemGrid
-})
+// socket.on('screenshare-source-in', videoElemGrid => {
+//   videoElemGrid
+// })
 
 function appendMessage(message){
   const messageElement = document.createElement('div')
@@ -188,4 +192,21 @@ let youtubeID = document.getElementById('youtubeForm')
   iframe.style.width="70%"
   iframe.style.height="70%"
  })
+
+ //Mute 
+const muteUnmute = () => {
+  const enabled = myVideoStream.getAudioTracks()[0].enabled;
+  if (enabled) {
+    myVideoStream.getAudioTracks()[0].enabled = false;
+    muteAudio.classList.remove("orange")
+    muteAudio.classList.add("red")
+  } else {
+    myVideoStream.getAudioTracks()[0].enabled = true;
+    muteAudio.classList.remove("red")
+    muteAudio.classList.add("orange")
+  }
+};
+muteAudio.addEventListener('click',(e)=>{
+  muteUnmute();
+})
 
