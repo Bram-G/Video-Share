@@ -27,7 +27,7 @@ footer h5 {
     margin-top: 7%;
     gap: 30px;
     height: 30vh;
-    margin-bottom: 42rem;
+    margin-bottom: 20rem;
   }
 video{
     width: 100%;
@@ -53,8 +53,8 @@ video{
   position: fixed;
   right: 0;
   top: 64;
-  height: 93%;
-  max-height: 93%;
+  height: 91%;
+  max-height: 91%;
   word-wrap: break-word;
 
 }
@@ -165,4 +165,25 @@ iframe {
   z-index: 1;
   margin-top: 1rem;
   margin-left: 1rem;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 2;
+  top:100%;
+  left:50%;
+  margin-left: -25px; 
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
