@@ -23,7 +23,7 @@ let myVideoStream;
 var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
 const muteAudio = document.getElementById('muteAudio')
-const videoBox = document.querySelector("#video-grid > video");
+const videoBox = document.querySelector("#video-sgrid > video");
 // gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
   video: true,

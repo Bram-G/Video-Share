@@ -41,11 +41,10 @@ io.on('connection',(socket) => {
             console.log(youtubeSource)
             io.to(roomId).emit('youtube-source-in', youtubeSource)
         })
-    })
         socket.on('screenshare-socket', (videoElemGrid) => {
             io.to(roomId).emit('screenshare-source-in', videoElemGrid)
         })
-    
+    })
 })
 
 app.use(express.urlencoded({ extended: true }));
