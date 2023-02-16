@@ -42,9 +42,9 @@ io.on('connection',(socket) => {
             io.to(roomId).emit('youtube-source-in', youtubeSource)
         })
     })
-        // socket.on('screenshare-socket', (videoElemGrid) => {
-        //     io.to(roomId).emit('screenshare-source-in', videoElemGrid)
-        // })
+        socket.on('screenshare-socket', (videoElemGrid) => {
+            io.to(roomId).emit('screenshare-source-in', videoElemGrid)
+        })
     
 })
 
