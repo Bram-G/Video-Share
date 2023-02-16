@@ -23,7 +23,7 @@ let myVideoStream;
 var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
 const muteAudio = document.getElementById('muteAudio')
-const videoBox = document.getElementsByTagName('video');
+const videoBox = document.querySelector("#video-grid > video");
 // gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -209,8 +209,9 @@ muteAudio.addEventListener('click',(e)=>{
   muteUnmute();
 })
 
-videoBox.addEventListener('click', (event) => {
-  requestFullscreen()
-  alert('hi')
-})
+
+// videoBox.addEventListener('dblclick', (evt) => {
+//   videoBox.requestFullscreen()
+//   console.log('test')
+// })
 
