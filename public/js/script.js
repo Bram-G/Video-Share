@@ -24,7 +24,6 @@ var currentPeer;
 let iframe = document.getElementById('iframeDisplay')
 const muteAudio = document.getElementById('muteAudio')
 
-hidden = document.getElementsByClassName("hidden")
 // gets mic and camera dataconst 
 navigator.mediaDevices.getUserMedia({
   video: true,
@@ -99,9 +98,9 @@ socket.on('youtube-source-in', youtubeSource => {
   iframe.style.width="70%"
   iframe.style.height="70%"
 })
-// socket.on('screenshare-source-in', videoElemGrid => {
-//   videoElemGrid
-// })
+socket.on('screenshare-source-in', videoElemGrid => {
+  videoElemGrid
+})
 
 function appendMessage(message){
   const messageElement = document.createElement('div')

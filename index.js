@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
 const http = require("http");
-const socket = require("socket.io");
+const socketIo = require("socket.io");
 const server = http.createServer(app)
 
-const io = require('socket.io')(server)
+const io = socketIo(server)
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const allRoutes = require("./controllers");
@@ -29,19 +29,22 @@ io.on('connection',(socket) => {
             delete users[socket.id]
             console.log(users)
         })
+        socket.on('send-chat-message', message =>{
+            io.to(roomId).emit('chat-message', {message: message, name:users[socket.id] })
+        })
+        socket.on('new-user',userId =>{
+            users[socket.id] = userId
+            socket.broadcast.emit('user-connected',userId)
+        })
+        socket.on('youtube-socket', (youtubeSource) => {
+            console.log('inside youtube socket')
+            console.log(youtubeSource)
+            io.to(roomId).emit('youtube-source-in', youtubeSource)
+        })
     })
-    socket.on('send-chat-message', message =>{
-        socket.broadcast.emit('chat-message', {message: message, name:users[socket.id] })
-    })
-    socket.on('new-user',userId =>{
-        users[socket.id] = userId
-        socket.broadcast.emit('user-connected',userId)
-    })
-    socket.on('youtube-socket', (youtubeSource) => {
-        console.log('inside youtube socket')
-        console.log(youtubeSource)
-        socket.broadcast.emit('youtube-source-in', youtubeSource)
-    })
+        // socket.on('screenshare-socket', (videoElemGrid) => {
+        //     io.to(roomId).emit('screenshare-source-in', videoElemGrid)
+        // })
     
 })
 
